@@ -1,0 +1,1564 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="075_Samlinger.html" rel="prev"/>
+<link href="082_Stukturer.html" rel="next"/>
+<link href="assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
+<title>Klasser - Grundlæggende C#</title>
+<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#klasser">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Grundlæggende C#" class="md-header__button md-logo" data-md-component="logo" href="." title="Grundlæggende C#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Grundlæggende C#
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Klasser
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="white" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="index.html">
+        Introduktion
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="040_simplevariabler.html">
+        Det grundlæggende
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="080_Klasser.html">
+        Det objektorienterede
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="120_Delegates.html">
+        Det funktionsorienterede
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="150_LINQ2Objects.html">
+        Det videregående
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="128_OperatorOverload.html">
+        Diverse
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="opgaver.html">
+      Opgaver
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="kursus.zip">
+      Download
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="links.html">
+      Links
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Grundlæggende C#" class="md-nav__button md-logo" data-md-component="logo" href="." title="Grundlæggende C#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Grundlæggende C#
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Introduktion
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Introduktion
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="index.html">
+        Introduktion til kurset
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="010_introcs.html">
+        Introdution til .NET
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="020_omcs.html">
+        Om C#-sproget
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="025_IntroduktiontilVS.html">
+        Introduktion til Visual Studio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="030_KonsolApp.html">
+        En konsol applikation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Det grundlæggende
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Det grundlæggende
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="040_simplevariabler.html">
+        Simple variabler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="045_tegnogtekster.html">
+        Tegn og tekster
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="048_Konstanter.html">
+        Konstanter
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="050_flow.html">
+        Programflow
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="060_metoder.html">
+        Metoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="065_Fejlh%C3%A5ndtering.html">
+        Fejlhåndtering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="070_Arrays.html">
+        Arrays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="075_Samlinger.html">
+        Samlinger
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Det objektorienterede
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Det objektorienterede
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Klasser
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="080_Klasser.html">
+        Klasser
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#om-modulet">
+    Om modulet
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#grundlggende-om-klasser">
+    Grundlæggende om klasser
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition-af-klasser">
+    Definition af klasser
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#oprettelse-af-objekter">
+    Oprettelse af objekter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#systemobject">
+    System.Object
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#felter">
+    Felter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#readonly-felter">
+    readonly felter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#default-constructor">
+    Default constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#privat-constructor">
+    Privat constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-1">
+    Opgave 80-1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#custom-constructor">
+    Custom constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#genbrug-af-constructor">
+    Genbrug af constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-2">
+    Opgave 80-2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-3">
+    Opgave 80-3
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-4">
+    Opgave 80-4
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-5">
+    Opgave 80-5
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-6">
+    Opgave 80-6
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initialisering-ved-oprettelse-af-objekter">
+    Initialisering ved oprettelse af objekter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#statiske-medlemmer">
+    Statiske medlemmer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-7">
+    Opgave 80-7
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#attributter">
+    Attributter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#klassediagram">
+    Klassediagram
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nullable-reference-types">
+    Nullable reference types
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partial">
+    partial
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boxing-unboxing">
+    Boxing / Unboxing
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="082_Stukturer.html">
+        Stukturer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="087_Hukommelsesteori.html">
+        Hukommelsesteori
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="089_OOP.html">
+        OOP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="090_Indkapsling.html">
+        Indkapsling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="100_Arv.html">
+        Nedarvning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="105_Polymofi.html">
+        Polymorfi
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="110_Interfaces.html">
+        Interface
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Det funktionsorienterede
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Det funktionsorienterede
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="120_Delegates.html">
+        Delegates
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="125_Events.html">
+        Hændelser
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Det videregående
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Det videregående
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="150_LINQ2Objects.html">
+        LINQ to Objects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="155_ASync.html">
+        Asynkron programmering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="126_Avancerede_typer.html">
+        Avancerede typer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="165_Kommunikation_med_filer.html">
+        Kommunikation med filer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="167_Kommunikation_over_HTTP.html">
+        Kommunikation over HTTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="168_Kommunikation_med_databaser.html">
+        Kommunikation med databaser
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="175_Serialisering.html">
+        Serialisering
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Diverse
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Diverse
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="128_OperatorOverload.html">
+        Operator overload
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="130_Generics.html">
+        Generiske typer og medlemmer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="170_Konfiguration.html">
+        Brug af konfigurationsfiler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="185_Globalisering.html">
+        Globalisering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="195_RegEx.html">
+        RegEx
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="160_XML.html">
+        Kommunikation med XML
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="200_Reflection.html">
+        Reflection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="169_ExpressionTrees.html">
+        Expression trees
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="330_Terning.html">
+        En OOP terning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="360_Optimering.html">
+        Optimering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="400_Git.html">
+        Git og GitHub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="410_IntroduktionWinForm.html">
+        WinForm intro
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="420_IntroMonoGame.html">
+        MonoGame intro
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="500_EkstraOpgaver.html">
+        Ekstra opgaver
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Certificering/basiccert.html">
+        C# certificering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="sharplab.html">
+        Brug af SharpLap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="chatgpt.html">
+        Brug af ChatGPT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="konsol_udvidet.html">
+        En udvidet konsol applikation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="opgaver.html">
+        Opgaver
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="kursus.zip">
+        Download
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="links.html">
+        Links
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#om-modulet">
+    Om modulet
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#grundlggende-om-klasser">
+    Grundlæggende om klasser
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#definition-af-klasser">
+    Definition af klasser
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#oprettelse-af-objekter">
+    Oprettelse af objekter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#systemobject">
+    System.Object
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#felter">
+    Felter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#readonly-felter">
+    readonly felter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#default-constructor">
+    Default constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#privat-constructor">
+    Privat constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-1">
+    Opgave 80-1
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#custom-constructor">
+    Custom constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#genbrug-af-constructor">
+    Genbrug af constructor
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-2">
+    Opgave 80-2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-3">
+    Opgave 80-3
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-4">
+    Opgave 80-4
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-5">
+    Opgave 80-5
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-6">
+    Opgave 80-6
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initialisering-ved-oprettelse-af-objekter">
+    Initialisering ved oprettelse af objekter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#statiske-medlemmer">
+    Statiske medlemmer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-80-7">
+    Opgave 80-7
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#attributter">
+    Attributter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#klassediagram">
+    Klassediagram
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nullable-reference-types">
+    Nullable reference types
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#partial">
+    partial
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#boxing-unboxing">
+    Boxing / Unboxing
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="klasser">Klasser</h1>
+<h2 id="om-modulet">Om modulet</h2>
+<p>I dette modul vil du lære den helt grundlæggende teori bag klasser. Du skal have en forståelse for de forskellige typer af medlemmer du kan bruge til at <strong><em>designe</em></strong> dine klasser, og øve dig i at kunne finde entiteter i en applikation, og abstrahere disse til klasser. Dem kan du så bruge til at skabe objekter af.</p>
+<p>Der er en del opgaver i dette modul som du bør bruge lidt tid på.</p>
+<h2 id="grundlggende-om-klasser">Grundlæggende om klasser</h2>
+<!-- > video:{ id:"cqnIlE3N2c", titel:"Grundlæggende om klasser", længde: 8 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Grundlæggende om klasser (8 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnIlE3N2c" target="_blank">Se video</a></p>
+</div>
+<p>Klasse er en skabelon for instanser (typisk kaldet objekter)</p>
+<ul>
+<li>En skabelon kan bruges til mange objekter</li>
+<li>Den eneste forskel på objekter af samme type er data (tilstand)</li>
+</ul>
+<p>Abstraktion over element og proces</p>
+<ul>
+<li>Yatzy-spil</li>
+<li>Terning, Bæger, Spilleplade, Spillere, Spil/regler</li>
+<li>Shop</li>
+<li>Kunde, Vare, Lager, Faktura, FakturaLinje</li>
+<li>Vagtplan</li>
+<li>Medarbejder, Leder, Butikker, Åbningstider</li>
+</ul>
+<p>En type består af</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/type.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/type.png"/></a></p>
+<p>Synlighed</p>
+<ul>
+<li>internal (kun typer som ikke er placeret i en anden type)</li>
+<li>private</li>
+<li>public</li>
+<li>protected</li>
+</ul>
+<h2 id="definition-af-klasser">Definition af klasser</h2>
+<!-- > video:{ id:"cqnIIY3NDb", titel:"Definition af klasser", længde: 4 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Definition af klasser (4 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnIIY3NDb" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Brug class-kodeordet</li>
+<li>Navngivning (som variabler)</li>
+<li>Synlighed</li>
+<li>internal (internt i projektet)</li>
+<li>public (alle der skaber en reference til projektet kan se typen)</li>
+<li>(private) kun ved brug i “klasser i klasser”</li>
+<li>(protected) kun ved nedarvning - se senere</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser1</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="p">{</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="c1">// public eller internal (private, protected)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">        </span><span class="c1">// medlemmer</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="oprettelse-af-objekter">Oprettelse af objekter</h2>
+<!-- > video:{ id:"cqji6GOsHS", titel:"Oprettelse af objekter", længde: 4 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Oprettelse af objekter (4 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqji6GOsHS" target="_blank">Se video</a></p>
+</div>
+<p>Når man skal oprette et objekt af en klasse benytter man new-kodeordet, og referencen skal gemmes i en variabel af den korrekte type. HUSK - at klasser er en reference baseret variabel.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// variabel som kan pege på et objekt</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">Klasser1</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p1</span><span class="p">;</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1">// Nyt objekt på heap og bind ref til p1</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser1</span><span class="p">.</span><span class="n">Person</span><span class="p">();</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1">// eller på samme linje</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">Klasser1</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser1</span><span class="p">.</span><span class="n">Person</span><span class="p">();</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1">// men p2 er stadig en variabel der kan pege på et Person-objekt</span>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1">// derfor kan man</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">;</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1">// hvorefter det p1 tidligere pegede på er væk</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="c1">// Fra C# 9 kan man også</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="n">Klasser1</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">();</span>
+</code></pre></div>
+<p>Her er en kort animieret gif - en gul linje viser at der skal til at blive afviklet! Du skal være helt skarp på hvad der sker:</p>
+<ul>
+<li>En variabel på stack’en (del af hukommelse) kan pege på et objekt på heap (anden del af hukommelse)</li>
+<li>new-kodet skaber objektet på heap’en</li>
+<li>= gemmer referencen til objektet i variablen</li>
+<li>Hvis et objekt på heap’en ikke er refereret bliver det automatisk fjernet</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/cl.gif"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/cl.gif"/></a></p>
+<h2 id="systemobject">System.Object</h2>
+<!-- > video:{ id:"cqji67OsJF", titel:"System.Object", længde: 3 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video System.Object (3 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqji67OsJF" target="_blank">Se video</a></p>
+</div>
+<p>Alle referencebaserede typer arver fra System.Object, og alle værdibaserede typer er kompatible med System.ValueType, som arver fra System.Object.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/object_valuetype.png"><img src="http://cdn.cronberg.dk/kurser/cs/object_valuetype.png" width="300"/></a></p>
+<p>Derfor består alle typer af metoderne:</p>
+<table>
+<thead>
+<tr>
+<th>Navn</th>
+<th>Beskrivelse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(virtual) bool Equals</td>
+<td>Sammenligner to instanser</td>
+</tr>
+<tr>
+<td>(virtual) int GetHashCode</td>
+<td>Skaber en hash værdi til gruppering</td>
+</tr>
+<tr>
+<td>Type GetType</td>
+<td>Returnerer typen</td>
+</tr>
+<tr>
+<td>(virtual) string ToString</td>
+<td>Konverterer instans til en streng</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="m">1</span><span class="p">));</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">());</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">GetType</span><span class="p">().</span><span class="n">Name</span><span class="p">);</span>
+<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
+<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileInfo</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileInfo</span><span class="p">(</span><span class="s">@"c:\temp\test.txt"</span><span class="p">);</span>
+<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">FileInfo</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">Equals</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">GetHashCode</span><span class="p">());</span>
+<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">GetType</span><span class="p">().</span><span class="n">Name</span><span class="p">);</span>
+<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+</code></pre></div>
+<p>Så hvis du undre dig over hvor eksempelvis ToString-metoden kommer fra på en ellers “tom” klasse er det derfor.</p>
+<h2 id="felter">Felter</h2>
+<!-- > video:{ id:"cqnIIE3Nb4", titel:"Felter", længde: 6 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Felter (6 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnIIE3Nb4" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Felter (fields) er objekternes data</li>
+<li>kan være alle typer</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/felter.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/felter.png"/></a></p>
+<ul>
+<li>Synlighed</li>
+<li>private (default)<ul>
+<li>Kan kun tilgås internt</li>
+</ul>
+</li>
+<li>public<ul>
+<li>Kan tilgås både internt og eksternt</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser2</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="p">{</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="n">Køn</span><span class="w"> </span><span class="n">køn</span><span class="p">;</span>
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="w">            </span><span class="c1">// her kan alle felter tilgås - både private og public</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">Køn</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="w">        </span><span class="n">Mand</span><span class="p">,</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="w">        </span><span class="n">Kvinde</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Felter tilgås med punktumnotation</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">Klasser2</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser2</span><span class="p">.</span><span class="n">Person</span><span class="p">();</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">p1</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Mikkel"</span><span class="p">;</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">navn</span><span class="p">);</span>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1">// p1.alder = 15; FEJL : alder kan ikke tilgås - den er privat for klassen</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1">// Console.WriteLine(p1.alder);  Fejl: alder kan ikke tilgås -den er privat for klassen</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="cm">/*</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="cm">Mikkel</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="cm">*/</span>
+</code></pre></div>
+<h2 0="0" id="readonly-felter" niveau:="niveau:">readonly felter</h2>
+<ul>
+<li>Et readonly felt kan kun intialiseres i constructor eller ved intialisering og kan derefter ikke tilrettes</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser14</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">{</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">)</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="w">            </span><span class="c1">// this.Navn = ""; fejl - må kun tildeles i constructor eller ved initialisering</span>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="p">}</span>
+</code></pre></div>
+<p>Det giver mulighed for at skabe immutable felter.</p>
+<h2 id="default-constructor">Default constructor</h2>
+<!-- > video:{ id:"cqnDXw3RE2", titel:"Default constructor", længde: 7 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Default constructor (7 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnDXw3RE2" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Metode der automatisk afvikles ved brug af new</li>
+<li>Default constructor er uden argumenter og returværdi</li>
+<li>Der kan kun findes én</li>
+<li>Typisk brug ved initialisering</li>
+<li>Brug evt “ctor” snippet</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser3</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="p">{</span>
+<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a>
+<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">()</span>
+<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-6-14" id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">            </span><span class="c1">// Valgfrit om man ønsker at benytte this-kodeordet</span>
+<a href="#__codelineno-6-15" id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<a href="#__codelineno-6-16" id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">            </span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-6-17" id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-6-18" id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-6-19" id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="privat-constructor">Privat constructor</h2>
+<ul>
+<li>Hvis man tilføjer en privat default constructor kan man ikke skabe et objekt af klassen</li>
+<li>Singleton-mønster</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Eksempler</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="p">{</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Singleton</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">        </span><span class="c1">// Man må ikke skabe en instans - kun HentSingleton er mulig</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="nf">Singleton</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="w">        </span><span class="c1">// instans data (bør ikke være offentligt felt)</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Id</span><span class="p">;</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="w">        </span><span class="c1">// mv...</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a>
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">Singleton</span><span class="w"> </span><span class="nf">HentSingleton</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">o</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="w">                </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Singleton</span><span class="p">();</span>
+<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">o</span><span class="p">;</span>
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a>
+<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="p">}</span>
+</code></pre></div>
+<!-- > opgave:{navn:"Singleton-mønsteret", niveau: 1, url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/klasser-singleton/Opgave/index.md", beskrivelse: "Avanceret opgave der viser singleton-mønsteret"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-80-1">Opgave 80-1</h2>
+<p>Avanceret opgave der viser singleton-mønsteret (kode til søgning: IAB)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/klasser-singleton/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<h2 id="custom-constructor">Custom constructor</h2>
+<!-- > video:{ id:"cqnDXd3REu", titel:"Custom constructor", længde: 10 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Custom constructor (10 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnDXd3REu" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Metode(r) der automatisk afvikles ved brug af new</li>
+<li>Har argumenter</li>
+<li>Bruges typisk til initialisering af private felter</li>
+<li>Man kan nøjes med en custom eller flere custom constructor’s</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser4</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="p">{</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">)</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a>
+<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">        </span><span class="c1">// Man må gerne have flere</span>
+<a href="#__codelineno-8-15" id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">)</span>
+<a href="#__codelineno-8-16" id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-8-17" id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-8-18" id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-8-19" id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-8-20" id="__codelineno-8-20" name="__codelineno-8-20"></a>
+<a href="#__codelineno-8-21" id="__codelineno-8-21" name="__codelineno-8-21"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-8-22" id="__codelineno-8-22" name="__codelineno-8-22"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Så skal man benytte den/dem ved oprettelse af objekt</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">// Brug af custom construtor</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">Klasser4</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser4</span><span class="p">.</span><span class="n">Person</span><span class="p">(</span><span class="s">"Mikkel"</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">);</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">Klasser4</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser4</span><span class="p">.</span><span class="n">Person</span><span class="p">(</span><span class="s">"Mikkel"</span><span class="p">);</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1">// Klasser4.Person p1 = new Klasser4.Person(); Fejl: Default constructor findes ikke</span>
+</code></pre></div>
+<ul>
+<li>Du kan vælge både at have en default og custom constructor</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser5</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="p">{</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">()</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">;</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a>
+<a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">)</span>
+<a href="#__codelineno-10-15" id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-10-16" id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-10-17" id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-10-18" id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-10-19" id="__codelineno-10-19" name="__codelineno-10-19"></a>
+<a href="#__codelineno-10-20" id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">        </span><span class="c1">// Man må gerne have flere</span>
+<a href="#__codelineno-10-21" id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">)</span>
+<a href="#__codelineno-10-22" id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-10-23" id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-10-24" id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-10-25" id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-10-26" id="__codelineno-10-26" name="__codelineno-10-26"></a>
+<a href="#__codelineno-10-27" id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-10-28" id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Så kan du frit vælge ved oprettelse hvilken constructor du vil benytte</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1">// Brug af forskellige constructors</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">Klasser5</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser5</span><span class="p">.</span><span class="n">Person</span><span class="p">();</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">Klasser5</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser5</span><span class="p">.</span><span class="n">Person</span><span class="p">(</span><span class="s">"Mikkel"</span><span class="p">);</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">Klasser5</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser5</span><span class="p">.</span><span class="n">Person</span><span class="p">(</span><span class="s">"Mikkel"</span><span class="p">,</span><span class="w"> </span><span class="m">15</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="genbrug-af-constructor">Genbrug af constructor</h2>
+<!-- > video:{ id:"cqnDlV3REB", titel:"Genbrug af constructor", længde: 10 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Genbrug af constructor (10 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnDlV3REB" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Man kan binde flere constructors sammen for at undgå kopi af (initaliserings- og validerings)kode</li>
+<li>Brug af this-kodeordet</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser6</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="p">{</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>
+<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="w">        </span><span class="c1">// "mor" for alle constructors</span>
+<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">)</span>
+<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="n">alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-12-14" id="__codelineno-12-14" name="__codelineno-12-14"></a>
+<a href="#__codelineno-12-15" id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">()</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="s">""</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<a href="#__codelineno-12-16" id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-12-17" id="__codelineno-12-17" name="__codelineno-12-17"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-12-18" id="__codelineno-12-18" name="__codelineno-12-18"></a>
+<a href="#__codelineno-12-19" id="__codelineno-12-19" name="__codelineno-12-19"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="nf">Person</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">)</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="k">this</span><span class="p">(</span><span class="n">navn</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">)</span>
+<a href="#__codelineno-12-20" id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-12-21" id="__codelineno-12-21" name="__codelineno-12-21"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-12-22" id="__codelineno-12-22" name="__codelineno-12-22"></a>
+<a href="#__codelineno-12-23" id="__codelineno-12-23" name="__codelineno-12-23"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-12-24" id="__codelineno-12-24" name="__codelineno-12-24"></a><span class="p">}</span>
+</code></pre></div>
+<!-- > opgave:{navn:"Klasse der repræsenterer en simpel terning",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Klasser-terning-simpel/Opgave", beskrivelse: "Simpel klasse der repræsenterer en terning"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-80-2">Opgave 80-2</h2>
+<p>Simpel klasse der repræsenterer en terning (kode til søgning: IAC)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Klasser-terning-simpel/Opgave" target="_blank">Se opgave</a></p>
+</div>
+<!-- > opgave:{navn:"Klasse der repræsenterer en terning med snyd",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Klasser-terning/Opgave/index.md", beskrivelse: "Lidt avanceret klasse til at repræsentere en terning"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-80-3">Opgave 80-3</h2>
+<p>Lidt avanceret klasse til at repræsentere en terning (kode til søgning: IAD)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Klasser-terning/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<!-- > opgave:{navn:"Klasse der repræsenterer et bæger af terninger",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/array-yatzybaeger/Opgave/index.md#b%C3%A6ger-med-terninger", beskrivelse: "For at spille Yatzy skal vi bruge et bæger - en måde at skabe et bæger er at benytte et array."} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-80-4">Opgave 80-4</h2>
+<p>For at spille Yatzy skal vi bruge et bæger - en måde at skabe et bæger er at benytte et array. (kode til søgning: IAE)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/array-yatzybaeger/Opgave/index.md#b%C3%A6ger-med-terninger" target="_blank">Se opgave</a></p>
+</div>
+<!-- > opgave:{navn:"Oprettelse og brug af en simpel klasse",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Klasser-simpel/Opgave/index.md", beskrivelse: "Lille opgave i erklæring og brug af en klasse og constructor"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-80-5">Opgave 80-5</h2>
+<p>Lille opgave i erklæring og brug af en klasse og constructor (kode til søgning: IAF)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Klasser-simpel/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<!-- > opgave:{navn:"Konto med tilhørende transaktioner",url:"https://github.com/devcronberg/undervisning-cs-opgaver/tree/master/klasser-amort/Opgave", beskrivelse: "Skab en Konto-klasser der inderholder en liste af transaktioner. Her er der især fokus på (manglende) sikkerhed."} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-80-6">Opgave 80-6</h2>
+<p>Skab en Konto-klasser der inderholder en liste af transaktioner. Her er der især fokus på (manglende) sikkerhed. (kode til søgning: IAG)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/tree/master/klasser-amort/Opgave" target="_blank">Se opgave</a></p>
+</div>
+<h2 id="initialisering-ved-oprettelse-af-objekter">Initialisering ved oprettelse af objekter</h2>
+<!-- > video:{ id:"cqnDll3REs", titel:"Initialisering ved oprettelse af objekter", længde: 2 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Initialisering ved oprettelse af objekter (2 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnDll3REs" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Man kan vælge at initialisere objekter med data direkte ved oprettelse</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">Klasser9</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser9</span><span class="p">.</span><span class="n">Person</span><span class="p">();</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">p</span><span class="p">.</span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Mathias"</span><span class="p">;</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">p</span><span class="p">.</span><span class="n">Alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">;</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{p.Navn} er {p.Alder} år gammel"</span><span class="p">);</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1">// eller</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="n">Klasser9</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser9</span><span class="p">.</span><span class="n">Person</span><span class="p">()</span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="p">{</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="w">    </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"Mathias"</span><span class="p">,</span>
+<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="w">    </span><span class="n">Alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span>
+<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="p">};</span>
+<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{p.Navn} er {p.Alder} år gammel"</span><span class="p">);</span>
+<a href="#__codelineno-13-14" id="__codelineno-13-14" name="__codelineno-13-14"></a>
+<a href="#__codelineno-13-15" id="__codelineno-13-15" name="__codelineno-13-15"></a>
+<a href="#__codelineno-13-16" id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="cm">/*</span>
+<a href="#__codelineno-13-17" id="__codelineno-13-17" name="__codelineno-13-17"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-13-18" id="__codelineno-13-18" name="__codelineno-13-18"></a>
+<a href="#__codelineno-13-19" id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="cm">Mathias er 12 år gammel</span>
+<a href="#__codelineno-13-20" id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="cm">Mathias er 12 år gammel</span>
+<a href="#__codelineno-13-21" id="__codelineno-13-21" name="__codelineno-13-21"></a>
+<a href="#__codelineno-13-22" id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="cm">*/</span>
+</code></pre></div>
+<h2 id="statiske-medlemmer">Statiske medlemmer</h2>
+<!-- > video:{ id:"cqnDlA3RG1", titel:"Statiske medlemmer", længde: 9 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Statiske medlemmer (9 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqnDlA3RG1" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Ligesom diverse typer har instans og statiske metoder:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="c1">// Instans metode</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="c1">// Statisk metode</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="kt">int</span><span class="p">.</span><span class="n">MinValue</span><span class="p">);</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="cm">/*</span>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="cm">10</span>
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="cm">-2147483648</span>
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a>
+<a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="cm">*/</span>
+</code></pre></div>
+<ul>
+<li>kan klasser også have statiske medlemmer - typisk metoder (men egenskaber og felter kan også være statiske).</li>
+<li>giver mulighed for at skabe medlemmer som kan benyttes <em>uden</em> at skabe et objekt</li>
+<li>klasser kan også markeres som statiske (må kun indeholde statiske metoder)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser12</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="p">{</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="w">        </span><span class="c1">// instans medlemmer</span>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">StortNavn</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Navn</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">();</span>
+<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a>
+<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">KonverterTilStortNavn</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">navn</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">();</span>
+<a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a>
+<a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-15-16" id="__codelineno-15-16" name="__codelineno-15-16"></a>
+<a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>brug af klasse</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">Klasser12</span><span class="p">.</span><span class="n">Person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Klasser12</span><span class="p">.</span><span class="n">Person</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"mikkel"</span><span class="w"> </span><span class="p">};</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">StortNavn</span><span class="p">());</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">Klasser12</span><span class="p">.</span><span class="n">Person</span><span class="p">.</span><span class="n">KonverterTilStortNavn</span><span class="p">(</span><span class="s">"mikkel"</span><span class="p">));</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="cm">/*</span>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="cm">MIKKEL</span>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="cm">MIKKEL</span>
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a>
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="cm">*/</span>
+</code></pre></div>
+<ul>
+<li>Man kan også benytte statiske data og en evt tilhørende statisk constructor</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser12</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="p">{</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Vare</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">        </span><span class="c1">// Konstant</span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="w">        </span><span class="c1">// private static double momsPct = 0.25;</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="w">        </span><span class="c1">// eller</span>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="w">        </span><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">momsPct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a>
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">        </span><span class="k">static</span><span class="w"> </span><span class="nf">Vare</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">            </span><span class="n">momsPct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="m">25</span><span class="p">;</span><span class="w">  </span><span class="c1">// Kan komme fra en database</span>
+<a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-17-13" id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-17-14" id="__codelineno-17-14" name="__codelineno-17-14"></a>
+<a href="#__codelineno-17-15" id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Masser af medlemmer i frameworket er statiske</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Math</span><span class="p">.</span><span class="n">Cos</span><span class="p">(</span><span class="m">10.3</span><span class="p">);</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kt">bool</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">File</span><span class="p">.</span><span class="n">Exists</span><span class="p">(</span><span class="s">"c:\\temp\\test.txt"</span><span class="p">);</span>
+</code></pre></div>
+<!-- > opgave:{navn:"Statiske metoder",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/klasser-statisk/Opgave/index.md", beskrivelse: "Definition af en klasse med statiske metoder"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-80-7">Opgave 80-7</h2>
+<p>Definition af en klasse med statiske metoder (kode til søgning: IAH)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/klasser-statisk/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<h2 id="attributter">Attributter</h2>
+<p>For at give yderligere information til eksempelvis kompiler eller frameworks som benytter en klasse kan den beriges med [attributter]. Det vil tilføjes ekstra
+metadata som kan aflæses hvis det ønskes. Eksempelvis kan en klasse markeres med en SerializableAttribute for at indikere, at klassen kan benyttes i serialisering (mest
+brugt i ældre kode):</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="na">[Serializable()]</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="p">{</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">    </span><span class="c1">// ...</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>Der må gerne tilføjes mange attributter og man kan skabe dem selv, men lige nu skal du bare vide at det er en måde at tilføje ekstra information til klasser.</p>
+<h2 id="klassediagram">Klassediagram</h2>
+<p>I Visual Studio har du mulighed for at indsætte et klasse diagram der viser hvad en klasse består af og eventuelt sammenhæng med andre klasser.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/kaeledyr.png"><img alt="" src="http://cdn.cronberg.dk/kurser/cs/kaeledyr.png"/></a></p>
+<p>Du kan indsætte et klassediagram ved at højreklikke på projektet, vælge “Add” og “New item…” - her skal du lede efter “Class Diagram”.</p>
+<p>Hvis du ikke kan finde klassediagrammet er det muligvis din installation mangler et kryds i en checkboks. Åbn Visual Studio Installer, vælg Modify, og under “Individual components” skal du finde “Class designer” og sætte kryds i checkboksen.</p>
+<h2 id="nullable-reference-types">Nullable reference types</h2>
+<p>I C# 8 kan man anmode kompileren om at hjælpe med at finde mulige null reference exceptions. Det kan slås til på flere måder:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>&lt;Project Sdk="Microsoft.NET.Sdk"&gt;
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>    &lt;PropertyGroup&gt;
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a>        &lt;OutputType&gt;Exe&lt;/OutputType&gt;        
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>        &lt;TargetFramework&gt;net6.0&lt;/TargetFramework&gt;
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>        &lt;Nullable&gt;enable&lt;/Nullable&gt;
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a>        &lt;WarningsAsErrors&gt;Nullable&lt;/WarningsAsErrors&gt;
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>    &lt;/PropertyGroup&gt;
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a>&lt;/Project&gt;
+</code></pre></div>
+<p>eller direkte i kode</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="err">#</span><span class="n">nullable</span><span class="w"> </span><span class="n">enable</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="c1">//</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="err">#</span><span class="n">nullable</span><span class="w"> </span><span class="n">restore</span>
+</code></pre></div>
+<p>Nu vil eksempelvis følgende klasse skabe en warning omkring Navn</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Hund</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="p">{</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="w">  </span><span class="c1">// Non-nullable property 'Navn' is uninitialized. Consider declaring the property as nullable.</span>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Navn</span><span class="p">;</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Alder</span><span class="p">;</span>
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">NavnMedStort</span><span class="p">()</span>
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Navn</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">();</span>
+<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="p">}</span>
+</code></pre></div>
+<p>Warning kan fixes på flere måder - initialisering med “” i erklæring eller constructor</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Hund</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="p">{</span>
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Navn</span><span class="p">;</span>
+<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Alder</span><span class="p">;</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Hund</span><span class="p">()</span>
+<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="w">        </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">NavnMedStort</span><span class="p">()</span>
+<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Navn</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">();</span>
+<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="p">}</span>
+</code></pre></div>
+<p>Hvis du efterfølgende forsøger at tildele Navn værdien null, vil der dukke en ny warning op.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">Hund</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Hund</span><span class="p">();</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="c1">// Cannot convert null literal to non-nullable reference type.</span>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">d</span><span class="p">.</span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
+</code></pre></div>
+<p>Du kan eventuelt markere Navn som en null reference type, men nu vil der dukke en ny warning op.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Hund</span>
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="p">{</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">Navn</span><span class="p">;</span>
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Alder</span><span class="p">;</span>
+<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Hund</span><span class="p">()</span>
+<a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a><span class="w">        </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+<a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">NavnMedStort</span><span class="p">()</span>
+<a href="#__codelineno-25-10" id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-25-11" id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="w">        </span><span class="c1">// Dereference of a possibly null reference</span>
+<a href="#__codelineno-25-12" id="__codelineno-25-12" name="__codelineno-25-12"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Navn</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">();</span>
+<a href="#__codelineno-25-13" id="__codelineno-25-13" name="__codelineno-25-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-25-14" id="__codelineno-25-14" name="__codelineno-25-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>Den må man så tage stilling og eventuelt fixe som:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Hund</span>
+<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="p">{</span>
+<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string?</span><span class="w"> </span><span class="n">Navn</span><span class="p">;</span>
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Alder</span><span class="p">;</span>
+<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a>
+<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">Hund</span><span class="p">()</span>
+<a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-26-8" id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="w">        </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">string</span><span class="p">.</span><span class="n">Empty</span><span class="p">;</span>
+<a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a>
+<a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">NavnMedStort</span><span class="p">()</span>
+<a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Navn</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
+<a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">ApplicationException</span><span class="p">(</span><span class="s">"Fejl i data"</span><span class="p">);</span>
+<a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">Navn</span><span class="p">.</span><span class="n">ToUpper</span><span class="p">();</span>
+<a href="#__codelineno-26-16" id="__codelineno-26-16" name="__codelineno-26-16"></a><span class="w">        </span><span class="c1">// eller noget ala</span>
+<a href="#__codelineno-26-17" id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="w">        </span><span class="c1">// return this.Navn!.ToUpper();</span>
+<a href="#__codelineno-26-18" id="__codelineno-26-18" name="__codelineno-26-18"></a><span class="w">        </span><span class="c1">// return this.Navn == null ? "" : this.Navn.ToUpper();</span>
+<a href="#__codelineno-26-19" id="__codelineno-26-19" name="__codelineno-26-19"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-26-20" id="__codelineno-26-20" name="__codelineno-26-20"></a><span class="p">}</span>
+</code></pre></div>
+<p>Her er ! en ny operator der fortæller kompileren at den skal blande sig uden om.</p>
+<h2 id="partial">partial</h2>
+<ul>
+<li>Nogen gange kan det være en fordel af splitte en klasse over flere filer</li>
+<li>Brug af partial-kodeordet</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Klasser13</span>
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="p">{</span>
+<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">navn</span><span class="p">;</span>
+<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a>
+<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="w">    </span><span class="c1">// I en anden (eller samme) fil</span>
+<a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">partial</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span>
+<a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">alder</span><span class="p">;</span>
+<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-27-13" id="__codelineno-27-13" name="__codelineno-27-13"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="boxing-unboxing">Boxing / Unboxing</h2>
+<ul>
+<li>
+<p>Boxing</p>
+</li>
+<li>
+<p>gem værdibaseret type i en reference baseret type</p>
+</li>
+<li>
+<p>Unboxing</p>
+</li>
+<li>
+<p>hent en værdibaseret type fra en reference baseret type</p>
+</li>
+<li>
+<p>kan skabe runtime fejl på runtime (kompiler kan ikke se fejl)</p>
+</li>
+<li>perfomance</li>
+<li>brug generics</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="c1">// boxing</span>
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="kt">object</span><span class="w"> </span><span class="n">o</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a>
+<a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">o</span><span class="p">);</span>
+<a href="#__codelineno-28-8" id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a>
+<a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a>
+<a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="cm">/*</span>
+<a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-28-13" id="__codelineno-28-13" name="__codelineno-28-13"></a>
+<a href="#__codelineno-28-14" id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="cm">10</span>
+<a href="#__codelineno-28-15" id="__codelineno-28-15" name="__codelineno-28-15"></a><span class="cm">10</span>
+<a href="#__codelineno-28-16" id="__codelineno-28-16" name="__codelineno-28-16"></a><span class="cm">10</span>
+<a href="#__codelineno-28-17" id="__codelineno-28-17" name="__codelineno-28-17"></a>
+<a href="#__codelineno-28-18" id="__codelineno-28-18" name="__codelineno-28-18"></a><span class="cm">*/</span>
+</code></pre></div>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2023 Michell Cronberg
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="mailto:michell@cronbeg.dk" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112v320c0 44.2 35.8 80 80 80h320c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v112c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16h112c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"></path></svg>
+</a>
+<a class="md-social__link" href="https://goo.gl/iVjaqF" rel="noopener" target="_blank" title="goo.gl">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="javascripts/tablesort.min.js"></script>
+<script src="javascripts/tablesort.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>

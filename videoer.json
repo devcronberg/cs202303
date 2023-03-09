@@ -1,0 +1,767 @@
+[
+  {
+    "id": "cFlUoGrPr8",
+    "titel": "Intro til kurset",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqjf2MOJzD",
+    "titel": "Form\u00E5l med programmering",
+    "l\u00E6ngde": 9
+  },
+  {
+    "id": "cqjfohOJzB",
+    "titel": "Diverse programmeringssprog",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqjfoKOJBu",
+    "titel": "Diverse programmeringssprog",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cYXU6ULRGR",
+    "titel": "Runtime",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqjfDwOJkj",
+    "titel": "BCL",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "crVF6c9XLp",
+    "titel": "NuGet",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cqjfDKOJks",
+    "titel": "Udviklingsmilj\u00F8(er)",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqjhDJOKcV",
+    "titel": "C#-sproget",
+    "l\u00E6ngde": 8
+  },
+  {
+    "id": "cqj1iqOKWr",
+    "titel": "C# er proceduralt",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqj1izO7cQ",
+    "titel": "C# er objektorienteret",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqj1iJO7cP",
+    "titel": "C# er funktionsorienteret",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqj1jVO7V5",
+    "titel": "C# er typest\u00E6rkt",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqj1jlO7nb",
+    "titel": "C# er typesikkert",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqj1QuO71X",
+    "titel": "Alt er baseret p\u00E5 typer",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqj1Q5O71m",
+    "titel": "Namespace",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cqj1Q7O7iF",
+    "titel": "Tilgang til typer",
+    "l\u00E6ngde": 1
+  },
+  {
+    "id": "cqjij2OsgY",
+    "titel": "Pr\u00F8v selv Visual Studio",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cqjij1OsBP",
+    "titel": "Simpel debugging",
+    "l\u00E6ngde": 15
+  },
+  {
+    "id": "cYVuQ1wnVw",
+    "titel": "S\u00E5dan opretter du en .NET Core Console app",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqjijEOskg",
+    "titel": "Helt grundl\u00E6ggende om metoder",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqjijwOske",
+    "titel": "using",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqjiQwOs5v",
+    "titel": "Brug af Console-klassen",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cFlT2VrLh7",
+    "titel": "Hukommelse",
+    "l\u00E6ngde": 9
+  },
+  {
+    "id": "cqjo2jtnnn",
+    "titel": "Typesystemet",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqjo2rtnec",
+    "titel": "Erkl\u00E6ring af variabler",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqjo2wtne8",
+    "titel": "Brug af var",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cFlTonrL1y",
+    "titel": "Virkefelter i C#",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cFlT0DrLDZ",
+    "titel": "Instans og statiske medlemmer",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cFlT0LrLbr",
+    "titel": "Variabler relateret til tal",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cFlOcwrLFo",
+    "titel": "Operatorer relateret til tal",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cFltj7rN0b",
+    "titel": "Formatering af tal",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cFlUcErPVD",
+    "titel": "Bool-variablen og tilh\u00F8rende operatorer",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cFlUXerPDL",
+    "titel": "DateTime og TimeSpan",
+    "l\u00E6ngde": 13
+  },
+  {
+    "id": "cqjo2ptnfK",
+    "titel": "Implicit typekonvertering",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqjo2Jtnhk",
+    "titel": "Explicit typekonvertering",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cFlUX0rPbD",
+    "titel": "Enkelt tegn (char)",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqjo2Ltn1j",
+    "titel": "Tekster (string)",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqjo2Rtn1a",
+    "titel": "Operatorer til manipulering",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqjoo3tnjg",
+    "titel": "Metoder til streng manipulering",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqjooutnQI",
+    "titel": "Specialtegn",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqjoDEtnop",
+    "titel": "Interpolerede strenge",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqjoD7tnDZ",
+    "titel": "Strenge er en reference type",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqjob1tnbx",
+    "titel": "Strenge er immutable",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cFlw6dr9AA",
+    "titel": "Konstanter",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqVf603cyu",
+    "titel": "Relaterede konstanter (enum)",
+    "l\u00E6ngde": 11
+  },
+  {
+    "id": "cqVIi93XtN",
+    "titel": "Brug af if",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqVIjX3Xuf",
+    "titel": "Brug af switch",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqVIj03Xu2",
+    "titel": "Brug af for-l\u00F8kken",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqVIQo3XuE",
+    "titel": "Brug af do/while-l\u00F8kken",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqVIQr3XuJ",
+    "titel": "Brug af continue og break",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqVIQO3Xu7",
+    "titel": "Brug af goto",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqV0lZ3Tqw",
+    "titel": "Hvorfor bruge metoder",
+    "l\u00E6ngde": 13
+  },
+  {
+    "id": "cqV0lB3TY0",
+    "titel": "S\u00E5dan skal en metode se ud",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqV0IQ3T3x",
+    "titel": "Definition og kald af metoder",
+    "l\u00E6ngde": 10
+  },
+  {
+    "id": "cqV0IY3T0a",
+    "titel": "Brug af statiske metoder",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqV0203Tuh",
+    "titel": "Default v\u00E6rdier p\u00E5 argumenter",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqV02a3TU1",
+    "titel": "Navngivne argumenter",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqV02p3TUz",
+    "titel": "Overload af metoder",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqnViv3BIP",
+    "titel": "Mulige fejl",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqnVDk3BmS",
+    "titel": "Brug af try/catch",
+    "l\u00E6ngde": 11
+  },
+  {
+    "id": "cqnnj93gpF",
+    "titel": "Exception-klassen",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqnn6u3gCO",
+    "titel": "InnerException",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqnnXY3g5j",
+    "titel": "Brug af throw",
+    "l\u00E6ngde": 8
+  },
+  {
+    "id": "cqen3L0qoJ",
+    "titel": "Traditionelt array",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqen030qbQ",
+    "titel": "Opret array",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cqen0m0qFw",
+    "titel": "Tilgang til array elementer",
+    "l\u00E6ngde": 8
+  },
+  {
+    "id": "cqen0R0qq4",
+    "titel": "Manipulering af arrays",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqefIt0rjn",
+    "titel": "Overordnet om samlinger",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqefIg0rjP",
+    "titel": "Typesvage samlinger",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqef260rXY",
+    "titel": "Typest\u00E6rke samlinger",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqef230rlD",
+    "titel": "List",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqef2a0rIb",
+    "titel": "Stack",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqef2g0rIG",
+    "titel": "Queue",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqefoh0rom",
+    "titel": "Dictionary",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqnIlE3N2c",
+    "titel": "Grundl\u00E6ggende om klasser",
+    "l\u00E6ngde": 8
+  },
+  {
+    "id": "cqnIIY3NDb",
+    "titel": "Definition af klasser",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqji6GOsHS",
+    "titel": "Oprettelse af objekter",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqji67OsJF",
+    "titel": "System.Object",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqnIIE3Nb4",
+    "titel": "Felter",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqnDXw3RE2",
+    "titel": "Default constructor",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cqnDXd3REu",
+    "titel": "Custom constructor",
+    "l\u00E6ngde": 10
+  },
+  {
+    "id": "cqnDlV3REB",
+    "titel": "Genbrug af constructor",
+    "l\u00E6ngde": 10
+  },
+  {
+    "id": "cqnDll3REs",
+    "titel": "Initialisering ved oprettelse af objekter",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqnDlA3RG1",
+    "titel": "Statiske medlemmer",
+    "l\u00E6ngde": 9
+  },
+  {
+    "id": "cqjiXkOsK8",
+    "titel": "Hvad er en struct",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqjiXdOs7u",
+    "titel": "Definering af egne strukturer",
+    "l\u00E6ngde": 1
+  },
+  {
+    "id": "cqjiXNOs7s",
+    "titel": "Oprettelse af instanser af structs",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqnj0g3dXa",
+    "titel": "Hukommelse (overordnet video)",
+    "l\u00E6ngde": 23
+  },
+  {
+    "id": "cqnhDT35p8",
+    "titel": "Brug af struct",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqeec60qY6",
+    "titel": "Array er en referencebaseret type",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqjoiItVm2",
+    "titel": "Strenge er immutable",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqnIlP3Noc",
+    "titel": "De tre principper i OOP",
+    "l\u00E6ngde": 8
+  },
+  {
+    "id": "cqntoT0IW0",
+    "titel": "Grundl\u00E6ggende om indkapsling",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqntbj02Qn",
+    "titel": "Indkapsling med metoder",
+    "l\u00E6ngde": 13
+  },
+  {
+    "id": "cqntbp02XH",
+    "titel": "Indkapsling med egenskaber",
+    "l\u00E6ngde": 15
+  },
+  {
+    "id": "cqntb902Ib",
+    "titel": "Automatiske egenskaber",
+    "l\u00E6ngde": 8
+  },
+  {
+    "id": "cqe1lY0ZkR",
+    "titel": "Overordnet om arv",
+    "l\u00E6ngde": 11
+  },
+  {
+    "id": "cqe1lN0Z5U",
+    "titel": "Syntaks for nedarvning",
+    "l\u00E6ngde": 10
+  },
+  {
+    "id": "cqe1Ir0ZG3",
+    "titel": "Tilgang til medlemmer",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqe1It0Zme",
+    "titel": "Default constructor",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqe1Ia0Zm7",
+    "titel": "Custom constructor",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqe12Q0Zdm",
+    "titel": "base-kodeordet",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqeQof0UpO",
+    "titel": "Grundl\u00E6ggende om polymorfi",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cqeo3Q0gv1",
+    "titel": "Virtuelle metoder",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqeo3b0gvG",
+    "titel": "Den virtuelle ToString()",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqeo300gwn",
+    "titel": "Abstrakte klasser",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqeo3y0gwB",
+    "titel": "Abstrakte metoder",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqeo0f0gyG",
+    "titel": "Mor kan altid pege p\u00E5 sine b\u00F8rn",
+    "l\u00E6ngde": 17
+  },
+  {
+    "id": "cqeo0t0gaX",
+    "titel": "Polymorfi og samlinger",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqeqlM058B",
+    "titel": "Generelt om interface",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqeqIl059f",
+    "titel": "Brug af egne interfaces",
+    "l\u00E6ngde": 12
+  },
+  {
+    "id": "cqeqIg05SJ",
+    "titel": "Interface er en referencetype",
+    "l\u00E6ngde": 8
+  },
+  {
+    "id": "cqeq2l0EVk",
+    "titel": "Polymorfi med interface",
+    "l\u00E6ngde": 7
+  },
+  {
+    "id": "cqeq240EfF",
+    "titel": "Brug af IComparable",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqeqoe0Eit",
+    "titel": "Brug af IDisposable",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqeqod0Elq",
+    "titel": "L\u00E6ngere eksempel p\u00E5 afkobling",
+    "l\u00E6ngde": 16
+  },
+  {
+    "id": "cqetQl0N05",
+    "titel": "Grundl\u00E6ggende om delegates",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqet6f0NO7",
+    "titel": "Hvad kan man bruge en delegate til",
+    "l\u00E6ngde": 12
+  },
+  {
+    "id": "cqet6o0Ntx",
+    "titel": "Definition af en delegate",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqet6u0Nut",
+    "titel": "Opret et delegate objekt",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqet6E0NU3",
+    "titel": "Afvikling af metoder",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqet680Nvn",
+    "titel": "Flere referencer i en delegate",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqetXf0Nvz",
+    "titel": "Fjern referencer fra delegates",
+    "l\u00E6ngde": 1
+  },
+  {
+    "id": "cqetXU0Nxi",
+    "titel": "Indbyggede delegates",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqetXH0NyD",
+    "titel": "Action",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqetXM0Nym",
+    "titel": "Func",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqetle0N4C",
+    "titel": "Predicate",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cqetI60Nke",
+    "titel": "Lambda expressions",
+    "l\u00E6ngde": 13
+  },
+  {
+    "id": "cqfQbvZIfd",
+    "titel": "Grundl\u00E6ggende om h\u00E6ndelser",
+    "l\u00E6ngde": 10
+  },
+  {
+    "id": "cqfQbsZI1J",
+    "titel": "Hvad er en h\u00E6ndelse",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqfQFQZIjY",
+    "titel": "event-kodeordet",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqfQFqZIQ2",
+    "titel": "Din egen EventArgs-klasse",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqiQYbOIib",
+    "titel": "Nullable typer",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqfqinZOMe",
+    "titel": "Grundl\u00E6ggende om LINQ",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqfqi4ZOLx",
+    "titel": "I gang med LINQ",
+    "l\u00E6ngde": 5
+  },
+  {
+    "id": "cqfqipZOL7",
+    "titel": "Syntaks",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqfqi8ZON3",
+    "titel": "Defered/Imediate execution",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqfqjlZONM",
+    "titel": "Brug af metoder i Lambda-syntaksen",
+    "l\u00E6ngde": 10
+  },
+  {
+    "id": "cqfqjZZO86",
+    "titel": "Filtrering",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqfqjyZO8t",
+    "titel": "Sortering",
+    "l\u00E6ngde": 2
+  },
+  {
+    "id": "cqfqj5ZO8P",
+    "titel": "Projecting",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cqfqj7ZOPb",
+    "titel": "Gruppering",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqfqjRZOPv",
+    "titel": "Join",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqfqQ6ZOP9",
+    "titel": "Singleton",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cqfYitZuiF",
+    "titel": "Diverse LINQ",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cYeXI5x3Gq",
+    "titel": "Brug af async og await til asynkrone func delegates",
+    "l\u00E6ngde": 3
+  },
+  {
+    "id": "cYVuQqwnnA",
+    "titel": "Tilf\u00F8j VS l\u00F8sning til source control",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cYVuQvwnev",
+    "titel": "Opret repository i GitHub",
+    "l\u00E6ngde": 4
+  },
+  {
+    "id": "cYVuQgwnfr",
+    "titel": "Synkronis\u00E9r med GitHub",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cYVuQ7wnhI",
+    "titel": "\u00C5bn et nyt projekt direkte fra GitHub",
+    "l\u00E6ngde": 6
+  },
+  {
+    "id": "cYnQX6w0hO",
+    "titel": "Eksempel p\u00E5 en applikation",
+    "l\u00E6ngde": 11
+  },
+  {
+    "id": "crntlhWwHr",
+    "titel": "Brug af MGCB editor",
+    "l\u00E6ngde": 2
+  }
+]

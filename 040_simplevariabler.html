@@ -1,0 +1,2103 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="030_KonsolApp.html" rel="prev"/>
+<link href="045_tegnogtekster.html" rel="next"/>
+<link href="assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
+<title>Simple variabler - Grundlæggende C#</title>
+<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#simple-variabler">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Grundlæggende C#" class="md-header__button md-logo" data-md-component="logo" href="." title="Grundlæggende C#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Grundlæggende C#
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Simple variabler
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="white" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="index.html">
+        Introduktion
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link md-tabs__link--active" href="040_simplevariabler.html">
+        Det grundlæggende
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="080_Klasser.html">
+        Det objektorienterede
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="120_Delegates.html">
+        Det funktionsorienterede
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="150_LINQ2Objects.html">
+        Det videregående
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="128_OperatorOverload.html">
+        Diverse
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="opgaver.html">
+      Opgaver
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="kursus.zip">
+      Download
+    </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="links.html">
+      Links
+    </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Grundlæggende C#" class="md-nav__button md-logo" data-md-component="logo" href="." title="Grundlæggende C#">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    Grundlæggende C#
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Introduktion
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_1_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_1">
+<span class="md-nav__icon md-icon"></span>
+          Introduktion
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="index.html">
+        Introduktion til kurset
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="010_introcs.html">
+        Introdution til .NET
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="020_omcs.html">
+        Om C#-sproget
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="025_IntroduktiontilVS.html">
+        Introduktion til Visual Studio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="030_KonsolApp.html">
+        En konsol applikation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Det grundlæggende
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Det grundlæggende
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Simple variabler
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="040_simplevariabler.html">
+        Simple variabler
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#grundlggende-om-variabler">
+    Grundlæggende om variabler
+  </a>
+<nav aria-label="Grundlæggende om variabler" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variabler">
+    Variabler
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typesystemet">
+    Typesystemet
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#erklring-af-variabler">
+    Erklæring af variabler
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#brug-af-var">
+    Brug af var
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virkefelter-stack-og-heap">
+    Virkefelter, Stack og Heap
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instans-medlemmer-og-statiske-medlemmer">
+    Instans medlemmer og statiske medlemmer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tal">
+    Tal
+  </a>
+<nav aria-label="Tal" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heltal">
+    Heltal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reelle-tal">
+    Reelle tal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mest-benyttede-variabler">
+    Mest benyttede variabler
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binre-og-hexadecimale-konstanter">
+    Binære og Hexadecimale konstanter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#double-decimal">
+    double / decimal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operatorer-relateret-til-tal">
+    Operatorer relateret til tal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-40-1">
+    Opgave 40-1
+  </a>
+<nav aria-label="Opgave 40-1" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overflow">
+    Overflow
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#andre-datatyper">
+    Andre datatyper
+  </a>
+<nav aria-label="Andre datatyper" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#store-heltal">
+    Store heltal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#komplekse-tal">
+    Komplekse tal
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formatering-af-tal">
+    Formatering af tal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sand-eller-falsk">
+    Sand eller falsk
+  </a>
+<nav aria-label="Sand eller falsk" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-operatorer">
+    Standard operatorer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bit-relaterede-operatorer">
+    Bit relaterede operatorer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bonus-info-det-behver-du-ikke-vide-men">
+    Bonus info (det behøver du ikke vide... men... )
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dato-og-tid">
+    Dato og tid
+  </a>
+<nav aria-label="Dato og tid" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#forskel-mellem-to-datetime-variabler">
+    Forskel mellem to DateTime-variabler
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datetimeoffset">
+    DateTimeOffset
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dateonly-og-timeonly">
+    DateOnly og TimeOnly
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-40-2">
+    Opgave 40-2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#implicit-typekonvertering">
+    Implicit typekonvertering
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#explicit-typekonvertering">
+    Explicit typekonvertering
+  </a>
+<nav aria-label="Explicit typekonvertering" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lidt-mere-avanceret">
+    Lidt mere avanceret
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-40-3">
+    Opgave 40-3
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="045_tegnogtekster.html">
+        Tegn og tekster
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="048_Konstanter.html">
+        Konstanter
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="050_flow.html">
+        Programflow
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="060_metoder.html">
+        Metoder
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="065_Fejlh%C3%A5ndtering.html">
+        Fejlhåndtering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="070_Arrays.html">
+        Arrays
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="075_Samlinger.html">
+        Samlinger
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Det objektorienterede
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Det objektorienterede
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="080_Klasser.html">
+        Klasser
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="082_Stukturer.html">
+        Stukturer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="087_Hukommelsesteori.html">
+        Hukommelsesteori
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="089_OOP.html">
+        OOP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="090_Indkapsling.html">
+        Indkapsling
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="100_Arv.html">
+        Nedarvning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="105_Polymofi.html">
+        Polymorfi
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="110_Interfaces.html">
+        Interface
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Det funktionsorienterede
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Det funktionsorienterede
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="120_Delegates.html">
+        Delegates
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="125_Events.html">
+        Hændelser
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Det videregående
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+          Det videregående
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="150_LINQ2Objects.html">
+        LINQ to Objects
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="155_ASync.html">
+        Asynkron programmering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="126_Avancerede_typer.html">
+        Avancerede typer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="165_Kommunikation_med_filer.html">
+        Kommunikation med filer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="167_Kommunikation_over_HTTP.html">
+        Kommunikation over HTTP
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="168_Kommunikation_med_databaser.html">
+        Kommunikation med databaser
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="175_Serialisering.html">
+        Serialisering
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle md-toggle--indeterminate" id="__nav_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Diverse
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+          Diverse
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="128_OperatorOverload.html">
+        Operator overload
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="130_Generics.html">
+        Generiske typer og medlemmer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="170_Konfiguration.html">
+        Brug af konfigurationsfiler
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="185_Globalisering.html">
+        Globalisering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="195_RegEx.html">
+        RegEx
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="160_XML.html">
+        Kommunikation med XML
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="200_Reflection.html">
+        Reflection
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="169_ExpressionTrees.html">
+        Expression trees
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="330_Terning.html">
+        En OOP terning
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="360_Optimering.html">
+        Optimering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="400_Git.html">
+        Git og GitHub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="410_IntroduktionWinForm.html">
+        WinForm intro
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="420_IntroMonoGame.html">
+        MonoGame intro
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="500_EkstraOpgaver.html">
+        Ekstra opgaver
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="Certificering/basiccert.html">
+        C# certificering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="sharplab.html">
+        Brug af SharpLap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="chatgpt.html">
+        Brug af ChatGPT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="konsol_udvidet.html">
+        En udvidet konsol applikation
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="opgaver.html">
+        Opgaver
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="kursus.zip">
+        Download
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="links.html">
+        Links
+      </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#grundlggende-om-variabler">
+    Grundlæggende om variabler
+  </a>
+<nav aria-label="Grundlæggende om variabler" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variabler">
+    Variabler
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#typesystemet">
+    Typesystemet
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#erklring-af-variabler">
+    Erklæring af variabler
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#brug-af-var">
+    Brug af var
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#virkefelter-stack-og-heap">
+    Virkefelter, Stack og Heap
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#instans-medlemmer-og-statiske-medlemmer">
+    Instans medlemmer og statiske medlemmer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tal">
+    Tal
+  </a>
+<nav aria-label="Tal" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heltal">
+    Heltal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reelle-tal">
+    Reelle tal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mest-benyttede-variabler">
+    Mest benyttede variabler
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#binre-og-hexadecimale-konstanter">
+    Binære og Hexadecimale konstanter
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#double-decimal">
+    double / decimal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#operatorer-relateret-til-tal">
+    Operatorer relateret til tal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-40-1">
+    Opgave 40-1
+  </a>
+<nav aria-label="Opgave 40-1" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#overflow">
+    Overflow
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#andre-datatyper">
+    Andre datatyper
+  </a>
+<nav aria-label="Andre datatyper" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#store-heltal">
+    Store heltal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#komplekse-tal">
+    Komplekse tal
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#formatering-af-tal">
+    Formatering af tal
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sand-eller-falsk">
+    Sand eller falsk
+  </a>
+<nav aria-label="Sand eller falsk" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#standard-operatorer">
+    Standard operatorer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bit-relaterede-operatorer">
+    Bit relaterede operatorer
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bonus-info-det-behver-du-ikke-vide-men">
+    Bonus info (det behøver du ikke vide... men... )
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dato-og-tid">
+    Dato og tid
+  </a>
+<nav aria-label="Dato og tid" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#forskel-mellem-to-datetime-variabler">
+    Forskel mellem to DateTime-variabler
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#datetimeoffset">
+    DateTimeOffset
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dateonly-og-timeonly">
+    DateOnly og TimeOnly
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-40-2">
+    Opgave 40-2
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#implicit-typekonvertering">
+    Implicit typekonvertering
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#explicit-typekonvertering">
+    Explicit typekonvertering
+  </a>
+<nav aria-label="Explicit typekonvertering" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lidt-mere-avanceret">
+    Lidt mere avanceret
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#opgave-40-3">
+    Opgave 40-3
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="simple-variabler">Simple variabler</h1>
+<h2 id="grundlggende-om-variabler">Grundlæggende om variabler</h2>
+<!-- > video:{ id:"cFlT2VrLh7", titel:"Hukommelse", længde: 9 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Hukommelse (9 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlT2VrLh7" target="_blank">Se video</a></p>
+</div>
+<p>En C# app bliver automatisk tildelt et område i hukommelsen at boltre sig på - noget bliver brugt til det oversatte program (flow, metoder mv), og noget til midlertidige data</p>
+<ul>
+<li>Stack</li>
+<li>Heap</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/hukommelse_program_data.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/hukommelse_program_data.png"/></a></p>
+<p>Hukommelse er jo i realiteten en samling elektroniske komponenter (porte og kredsløb) der kan gemme tal som <a href="https://da.wikipedia.org/wiki/Bin%C3%A6re_talsystem">binære værdier</a>.</p>
+<h3 id="variabler">Variabler</h3>
+<p>Alle applikationer har behov for at gemme midlertidige data, og i de fleste programmeringssprog sker dette ved hjælp af variabler.</p>
+<p>C# er typestærkt så kompileren ved præcis hvor meget der skal afsættes i hukommelsen. I stedet for at vi selv skal sørge for at allokere hukommelse, og efterfølgende holde styr på hvor i hukommelsen vi skal finde data, så stiller kompileren variabler til rådighed. I realiteten er det blot en tabel over nøgler (variabel navne) og adresser i hukommelsen samt allokeret plads.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/variabler_hukommelse.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/variabler_hukommelse.png"/></a></p>
+<h2 id="typesystemet">Typesystemet</h2>
+<!-- > video:{ id:"cqjo2jtnnn", titel:"Typesystemet", længde: 3 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Typesystemet (3 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqjo2jtnnn" target="_blank">Se video</a></p>
+</div>
+<p>Mange forskellige typer i .NET:</p>
+<ul>
+<li>Heltal af forskellig størrelse</li>
+<li>Reelle tal (kommatal) af forskellig størrelse</li>
+<li>Dato og tid</li>
+<li>Boolske værdier (sand/falsk)</li>
+<li>Tegn eller tekster (også kaldet strenge)</li>
+<li>Referencer til objekter eller strukturer</li>
+</ul>
+<p>Typerne er opdelt i</p>
+<ul>
+<li>
+<p>ValueTypes (værdibaserede typer)</p>
+<ul>
+<li>Struct<ul>
+<li>bool (System.Boolean)</li>
+<li>int (System.Int32)</li>
+<li>float (System.Float)</li>
+<li>decimal (System.Decimal)</li>
+<li>DateTime (System.DateTime)</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>ReferenceTypes (referencebaserede typer)</p>
+<ul>
+<li>Class<ul>
+<li>string (System.String)</li>
+<li>arrays (System.Array)</li>
+<li>lister (System.Collection.Generic....)</li>
+<li>exceptions (System.Exception)</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Grundlæggende er forskellen på de to typer, at værdier fra værdibaserede variabler er placeret et sted i hukommelsen kaldet <strong>stak</strong>, og værdier fra de referencebaserede variabler er placeret et andet sted i hukommelse kaldet <strong>heap</strong>. Variabler af begge typer er placeret på stak’en men de værdibaserede typer indeholder konkrete værdier (ved heltal er værdien et konkret tal), medens variabler af referencebasrede typer indeholder referencer til et sted på heap’en. Meget mere om det senere.</p>
+<h2 id="erklring-af-variabler">Erklæring af variabler</h2>
+<!-- > video:{ id:"cqjo2rtnec", titel:"Erklæring af variabler", længde: 5 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Erklæring af variabler (5 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqjo2rtnec" target="_blank">Se video</a></p>
+</div>
+<p>Først angives typen</p>
+<ul>
+<li>C# typenavn eller System-typenavn</li>
+</ul>
+<p>Herefter navnet på variablen</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>[variabeltype] [navn]
+</code></pre></div>
+<p>Husk - der er forskel på store og små bogstaver</p>
+<ul>
+<li>A er forskellig fra a</li>
+<li>navnPåPerson er forskellig fra navnpåperson</li>
+</ul>
+<p>Navngivning</p>
+<ul>
+<li>Navnet skal begynde med et bogstav eller en underscore (_)</li>
+<li>Navnet må ikke kun bestå af underscores</li>
+<li>Navnet må kun bestå af bogstaver, tal eller underscores</li>
+<li>Man må gerne på Æ Ø Å (men bør man?)</li>
+</ul>
+<p>Navngivningsstandard</p>
+<ul>
+<li>Tal dansk eller engelsk?</li>
+<li>Design Guidelines (<a href="http://goo.gl/YVxNz">http://goo.gl/YVxNz</a>)</li>
+<li>Brug eventuelt <a href="https://github.com/devcronberg/cskursus-editorconfig">.editorconfig</a></li>
+</ul>
+<p>Eksempler på navngivning af lokale variabler</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">antal</span><span class="p">;</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">antalMåneder</span><span class="p">;</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">antalMånederPrÅr</span><span class="p">;</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kt">string</span><span class="w"> </span><span class="n">navnPåPerson</span><span class="p">;</span>
+</code></pre></div>
+<p>Man kan vælge at bruge system navne (men best pratice er brug af genvejsnavne):</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="w"> </span><span class="n">antal</span><span class="p">;</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="w"> </span><span class="n">antalMåneder</span><span class="p">;</span>
+<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="w"> </span><span class="n">antalMånederPrÅr</span><span class="p">;</span>
+<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">System</span><span class="p">.</span><span class="n">String</span><span class="w"> </span><span class="n">navnPåPerson</span><span class="p">;</span>
+</code></pre></div>
+<p>Variablen kan eventuelt tildeles en værdi ved erklæring</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">antal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">antalMåneder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">6</span><span class="p">;</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">antalMånederPrÅr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">;</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kt">string</span><span class="w"> </span><span class="n">navnPåPerson</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"abc"</span><span class="p">;</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1">// Brug evt systemnavn - giver det samme</span>
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1">// System.String navnPåPerson = "abc";</span>
+</code></pre></div>
+<p>Man kan vælge at benytte <code>new</code> ved oprettelse af simple variabler - men det er ikke nødvendigt ved de fleste simple værdibaserede variabler:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">();</span>
+<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Int32</span><span class="p">();</span>
+<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="brug-af-var">Brug af var</h2>
+<!-- > video:{ id:"cqjo2wtne8", titel:"Brug af var", længde: 3 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Brug af var (3 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqjo2wtne8" target="_blank">Se video</a></p>
+</div>
+<p>var-kodeordet er et avanceret compilertrick</p>
+<ul>
+<li>Brug evt var ved erklæring af variabler</li>
+<li>Skal tildeles en værdi ved erklæring</li>
+<li>Stadig type sikker</li>
+<li>heltal = int som default</li>
+<li>kommatal = double som default</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span><span class="w">                 </span><span class="c1">// int</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1">// a = "";                  // Fejl - erklæret som int tidligere</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kt">var</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">11.2</span><span class="p">;</span><span class="w">               </span><span class="c1">// double</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kt">var</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a"</span><span class="p">;</span><span class="w">                </span><span class="c1">// string</span>
+<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="kt">var</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'b'</span><span class="p">;</span><span class="w">                </span><span class="c1">// char</span>
+<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="kt">var</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span><span class="w">       </span><span class="c1">// DateTime</span>
+</code></pre></div>
+<p>Nogle gang er det svært at udlede typen fra et udtryk - så kan var være smart at bruge var</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kt">var</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="p">[]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">4</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="p">};</span><span class="w"> </span><span class="c1">// int[]</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">GroupBy</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">i</span><span class="p">);</span><span class="w">          </span><span class="c1">// IGrouping&lt;int, int&gt;</span>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1">// I den avancerede C# benyttes var blandt andet til anonyme typer</span>
+<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="kt">var</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">navn</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="s">"Mikkel"</span><span class="w"> </span><span class="p">};</span>
+</code></pre></div>
+<h2 id="virkefelter-stack-og-heap">Virkefelter, Stack og Heap</h2>
+<!-- > video:{ id:"cFlTonrL1y", titel:"Virkefelter i C#", længde: 6 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Virkefelter i C# (6 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlTonrL1y" target="_blank">Se video</a></p>
+</div>
+<p>Når du ser et virkefelt i C# (<code>{ }</code>) skal du tegne en tegning i hovedet (Stack-definition).</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="p">{</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">    </span><span class="c1">// virkefelt</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="p">}</span>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1">// betingelse</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="p">{</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="w">    </span><span class="c1">// virkefelt</span>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="p">}</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>
+<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="c1">// løkke</span>
+<a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a href="#__codelineno-7-14" id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="p">{</span>
+<a href="#__codelineno-7-15" id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="w">    </span><span class="c1">// Virkefelt</span>
+<a href="#__codelineno-7-16" id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="p">}</span>
+<a href="#__codelineno-7-17" id="__codelineno-7-17" name="__codelineno-7-17"></a>
+<a href="#__codelineno-7-18" id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="c1">// metode</span>
+<a href="#__codelineno-7-19" id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="k">void</span><span class="w"> </span><span class="nf">Test</span><span class="p">()</span>
+<a href="#__codelineno-7-20" id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="p">{</span>
+<a href="#__codelineno-7-21" id="__codelineno-7-21" name="__codelineno-7-21"></a><span class="w">    </span><span class="c1">// Virkefelt</span>
+<a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="p">}</span>
+</code></pre></div>
+<p>Den fortæller hvilke variabler der er tilgængelige i det givne virkefelt, og hvilken værdier (eller reference) disse variabler har.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/stackdef1.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/stackdef1.png"/></a></p>
+<p>Hvis et virkefelt er placeret i et andet virkefelt må du tegne det som en stack i en stack</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/stackdef2.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/stackdef2.png"/></a></p>
+<p>Indre virkefelter har adgang til variabler i de ydre virkefelter - ikke omvendt (og ikke virkefelter på samme niveau).</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="p">{</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
+<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b = {b}"</span><span class="p">);</span>
+<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
+<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b = {b}"</span><span class="p">);</span>
+<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"c = {c}"</span><span class="p">);</span>
+<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-8-14" id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>De fleste simple variabeltyper beholder værdien på stacken, men enkelte typer placerer værdien andre steder i hukommelsen (den såkaldte heap), og variablens værdi er så en reference til et andet sted i hukommelsen. Mere om det senere!</p>
+<h2 id="instans-medlemmer-og-statiske-medlemmer">Instans medlemmer og statiske medlemmer</h2>
+<!-- > video:{ id:"cFlT0DrLDZ", titel:"Instans og statiske medlemmer", længde: 5 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Instans og statiske medlemmer (5 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlT0DrLDZ" target="_blank">Se video</a></p>
+</div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/skabelon.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/skabelon.png"/></a></p>
+<p>Der er forskel på om man benytter instanser af datatypen eller typens <em>statiske</em> medlemmer</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="c1">// instans medlem</span>
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">i</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1">// statisk medlem</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="kt">int</span><span class="p">.</span><span class="n">MinValue</span><span class="p">);</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">DateTime</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="m">2018</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">);</span>
+<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="c1">// instans medlem</span>
+<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">ToLongDateString</span><span class="p">());</span>
+<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="c1">// statisk medlemmer</span>
+<a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+<a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">IsLeapYear</span><span class="p">(</span><span class="m">2018</span><span class="p">));</span>
+</code></pre></div>
+<h2 id="tal">Tal</h2>
+<!-- > video:{ id:"cFlT0LrLbr", titel:"Variabler relateret til tal", længde: 7 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Variabler relateret til tal (7 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlT0LrLbr" target="_blank">Se video</a></p>
+</div>
+<h3 id="heltal">Heltal</h3>
+<table>
+<thead>
+<tr>
+<th>.NET</th>
+<th>C#</th>
+<th>Forklaring</th>
+<th>Spænd</th>
+<th>Litral suffix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System.Byte</td>
+<td>byte</td>
+<td>8-bit heltal uden fortegn</td>
+<td>0 til 255</td>
+<td></td>
+</tr>
+<tr>
+<td>System.Int16</td>
+<td>short</td>
+<td>16-bit heltal med fortegn</td>
+<td>-32.768 til 32.767</td>
+<td></td>
+</tr>
+<tr>
+<td>System.Int32</td>
+<td>int</td>
+<td>32-bit heltal med fortegn</td>
+<td>-2.147.483.648 til 2.147.483.647</td>
+<td></td>
+</tr>
+<tr>
+<td>System.Int64</td>
+<td>long</td>
+<td>64-bit heltal med fortegn</td>
+<td>-9.223.372 til 9.223.372 (trillioner)</td>
+<td>L eller l</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kt">byte</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kt">short</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="kt">long</span><span class="w"> </span><span class="n">d</span><span class="p">;</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="c1">// a = 500;   Vil skabe en fejl fordi 500 ikke kan repræsenteres af 8 bit</span>
+<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10000</span><span class="p">;</span>
+<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1">// b = 50000; Vil skabe en fejl fordi 50000 ikke kan repræsenteres af 16 bit</span>
+<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000000000</span><span class="p">;</span>
+<a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1000000000000000000</span><span class="p">;</span>
+<a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>
+<a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// initialisering ved erklæring</span>
+</code></pre></div>
+<h3 id="reelle-tal">Reelle tal</h3>
+<table>
+<thead>
+<tr>
+<th>.NET</th>
+<th>C#</th>
+<th>Forklaring</th>
+<th>Betydende cifre</th>
+<th>Litral suffix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System.Single</td>
+<td>float</td>
+<td>32-bit reelt tal (floating point)</td>
+<td>omkring 7</td>
+<td>F eller f</td>
+</tr>
+<tr>
+<td>System.Double</td>
+<td>double</td>
+<td>64-bit reelt tal (floating point)</td>
+<td>omkring 15</td>
+<td>D eller d</td>
+</tr>
+<tr>
+<td>System.Decimal</td>
+<td>decimal</td>
+<td>128-bit reelt tal</td>
+<td>omkring 28</td>
+<td>M eller m</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="kt">decimal</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="c1">// eksempler:</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.00000387326299309487F</span><span class="p">;</span><span class="w"> </span><span class="c1">// F konverterer en konstant til en float</span>
+<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.000233</span><span class="p">;</span>
+<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">838383629203242342342342342342342.234</span><span class="p">;</span>
+<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1208376382.23221</span><span class="n">M</span><span class="p">;</span><span class="w"> </span><span class="c1">// M konverterer en konstant til en decimal</span>
+<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a>
+<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="c1">// Konstanter på typen</span>
+<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"double min = {System.Double.MinValue}"</span><span class="p">);</span><span class="w">    </span><span class="c1">// MEGET lille tal</span>
+<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"double max = {System.Double.MaxValue}"</span><span class="p">);</span><span class="w">    </span><span class="c1">// MEGET stort tal</span>
+</code></pre></div>
+<h3 id="mest-benyttede-variabler">Mest benyttede variabler</h3>
+<p>De mest benyttede typer er int (32 bit) og double (64 bit). Begge er også default typer ved konstanter.</p>
+<h2 1_="1," _2019-8-27_='"2019-8-27"' dato:="dato:" id="binre-og-hexadecimale-konstanter" niveau:="niveau:">Binære og Hexadecimale konstanter</h2>
+<p>Der findes forskellige måder benytte binære og hexadecimale konstanter :</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">{</span>
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">svaretPåAlt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="n">b101010</span><span class="p">;</span>
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="p">}</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="p">{</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">svaretPåAlt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="n">x2A</span><span class="p">;</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="p">}</span>
+</code></pre></div>
+<h2 1_="1," _2019-08-27_='"2019-08-27"' id="double-decimal" niveau:="niveau:" oprettet:="oprettet:">double / decimal</h2>
+<p>Pas lige på med double (64 bit) - typen er en base2 type og benytter floating point hvilke kan give nogle afrundningsfejl.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="p">{</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="m">1</span><span class="p">;</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="c1">// r = 0.99999999999999989</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="p">}</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="p">{</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="kt">decimal</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="m">1</span><span class="n">M</span><span class="p">;</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="w">    </span><span class="kt">decimal</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
+<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="w">    </span><span class="c1">// r = 1</span>
+<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Til gengæld er den vanvittig hurtig - som i 20 gange hurtigere end decimal (kode fra <a href="https://exceptionnotfound.net/decimal-vs-double-and-other-tips-about-number-types-in-net/">exceptionnotfound</a>):</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">iterations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">100000000</span><span class="p">;</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DoubleTest</span><span class="p">()</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">{</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="w">    </span><span class="n">Stopwatch</span><span class="w"> </span><span class="n">watch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stopwatch</span><span class="p">();</span>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="w">    </span><span class="n">watch</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="w">    </span><span class="n">Double</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">iterations</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="w">        </span><span class="n">Double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">        </span><span class="n">Double</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">        </span><span class="n">z</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="w">    </span><span class="n">watch</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+<a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Double: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">watch</span><span class="p">.</span><span class="n">ElapsedTicks</span><span class="p">);</span>
+<a href="#__codelineno-14-16" id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<a href="#__codelineno-14-17" id="__codelineno-14-17" name="__codelineno-14-17"></a><span class="p">}</span>
+<a href="#__codelineno-14-18" id="__codelineno-14-18" name="__codelineno-14-18"></a>
+<a href="#__codelineno-14-19" id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">DecimalTest</span><span class="p">()</span>
+<a href="#__codelineno-14-20" id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="p">{</span>
+<a href="#__codelineno-14-21" id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="w">    </span><span class="n">Stopwatch</span><span class="w"> </span><span class="n">watch</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Stopwatch</span><span class="p">();</span>
+<a href="#__codelineno-14-22" id="__codelineno-14-22" name="__codelineno-14-22"></a><span class="w">    </span><span class="n">watch</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+<a href="#__codelineno-14-23" id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="w">    </span><span class="n">Decimal</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-14-24" id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">iterations</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<a href="#__codelineno-14-25" id="__codelineno-14-25" name="__codelineno-14-25"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-14-26" id="__codelineno-14-26" name="__codelineno-14-26"></a><span class="w">        </span><span class="n">Decimal</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-14-27" id="__codelineno-14-27" name="__codelineno-14-27"></a><span class="w">        </span><span class="n">Decimal</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a href="#__codelineno-14-28" id="__codelineno-14-28" name="__codelineno-14-28"></a><span class="w">        </span><span class="n">z</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<a href="#__codelineno-14-29" id="__codelineno-14-29" name="__codelineno-14-29"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-14-30" id="__codelineno-14-30" name="__codelineno-14-30"></a><span class="w">    </span><span class="n">watch</span><span class="p">.</span><span class="n">Stop</span><span class="p">();</span>
+<a href="#__codelineno-14-31" id="__codelineno-14-31" name="__codelineno-14-31"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Decimal: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">watch</span><span class="p">.</span><span class="n">ElapsedTicks</span><span class="p">);</span>
+<a href="#__codelineno-14-32" id="__codelineno-14-32" name="__codelineno-14-32"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">z</span><span class="p">);</span>
+<a href="#__codelineno-14-33" id="__codelineno-14-33" name="__codelineno-14-33"></a><span class="p">}</span>
+</code></pre></div>
+<p>Brug double hvor præcision har lavere prioritet end hastighed.</p>
+<h2 id="operatorer-relateret-til-tal">Operatorer relateret til tal</h2>
+<!-- > video:{ id:"cFlOcwrLFo", titel:"Operatorer relateret til tal", længde: 6 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Operatorer relateret til tal (6 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlOcwrLFo" target="_blank">Se video</a></p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Forklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>Plus</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Minus</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Gange</td>
+</tr>
+<tr>
+<td>/</td>
+<td>Division</td>
+</tr>
+<tr>
+<td>%</td>
+<td>Modulus (returnerer resten ved en division)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">tal1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">tal2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">5</span><span class="p">;</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">resultat1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tal1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tal2</span><span class="p">;</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Resultat1 = {resultat1}"</span><span class="p">);</span>
+<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">resultat2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tal2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tal1</span><span class="p">;</span>
+<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Resultat2 = {resultat2}"</span><span class="p">);</span>
+<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="kt">int</span><span class="w"> </span><span class="n">resultat3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tal1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">tal2</span><span class="p">;</span>
+<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Resultat3 = {resultat3}"</span><span class="p">);</span>
+<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a>
+<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="kt">int</span><span class="w"> </span><span class="n">antalMåneder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">12</span><span class="p">;</span>
+<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="kt">double</span><span class="w"> </span><span class="n">årsløn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">300000</span><span class="p">;</span>
+<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="kt">double</span><span class="w"> </span><span class="n">gennemsnitligLøn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">årsløn</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">antalMåneder</span><span class="p">;</span>
+<a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Gennemsnit = {gennemsnitligLøn}"</span><span class="p">);</span>
+<a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a>
+<a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="kt">int</span><span class="w"> </span><span class="n">resultat4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tal2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">tal1</span><span class="p">;</span>
+<a href="#__codelineno-15-16" id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Resultat4 = {resultat4}"</span><span class="p">);</span>
+<a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a>
+<a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="c1">// Pas på med at dividere heltal</span>
+<a href="#__codelineno-15-19" id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="kt">int</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-15-20" id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="kt">int</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<a href="#__codelineno-15-21" id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="kt">int</span><span class="w"> </span><span class="n">c1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b1</span><span class="p">;</span>
+<a href="#__codelineno-15-22" id="__codelineno-15-22" name="__codelineno-15-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b1</span><span class="p">;</span>
+<a href="#__codelineno-15-23" id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a1 = {a1}"</span><span class="p">);</span>
+<a href="#__codelineno-15-24" id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b1 = {b1}"</span><span class="p">);</span>
+<a href="#__codelineno-15-25" id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"c1 = {c1}"</span><span class="p">);</span>
+<a href="#__codelineno-15-26" id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"d1 = {d1}"</span><span class="p">);</span>
+<a href="#__codelineno-15-27" id="__codelineno-15-27" name="__codelineno-15-27"></a>
+<a href="#__codelineno-15-28" id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="kt">double</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-15-29" id="__codelineno-15-29" name="__codelineno-15-29"></a><span class="kt">double</span><span class="w"> </span><span class="n">b2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">;</span>
+<a href="#__codelineno-15-30" id="__codelineno-15-30" name="__codelineno-15-30"></a><span class="kt">double</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b2</span><span class="p">;</span>
+<a href="#__codelineno-15-31" id="__codelineno-15-31" name="__codelineno-15-31"></a><span class="kt">double</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a2</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="n">b2</span><span class="p">;</span>
+<a href="#__codelineno-15-32" id="__codelineno-15-32" name="__codelineno-15-32"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a2 = {a2}"</span><span class="p">);</span>
+<a href="#__codelineno-15-33" id="__codelineno-15-33" name="__codelineno-15-33"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b2 = {b2}"</span><span class="p">);</span>
+<a href="#__codelineno-15-34" id="__codelineno-15-34" name="__codelineno-15-34"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"c2 = {c2}"</span><span class="p">);</span>
+<a href="#__codelineno-15-35" id="__codelineno-15-35" name="__codelineno-15-35"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"d2 = {d2}"</span><span class="p">);</span>
+<a href="#__codelineno-15-36" id="__codelineno-15-36" name="__codelineno-15-36"></a>
+<a href="#__codelineno-15-37" id="__codelineno-15-37" name="__codelineno-15-37"></a>
+<a href="#__codelineno-15-38" id="__codelineno-15-38" name="__codelineno-15-38"></a><span class="c1">// Brug parentes</span>
+<a href="#__codelineno-15-39" id="__codelineno-15-39" name="__codelineno-15-39"></a><span class="kt">double</span><span class="w"> </span><span class="n">a3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">;</span>
+<a href="#__codelineno-15-40" id="__codelineno-15-40" name="__codelineno-15-40"></a><span class="kt">double</span><span class="w"> </span><span class="n">b3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="m">10</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">5</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="m">5</span><span class="p">;</span>
+<a href="#__codelineno-15-41" id="__codelineno-15-41" name="__codelineno-15-41"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a3 = {a3}"</span><span class="p">);</span>
+<a href="#__codelineno-15-42" id="__codelineno-15-42" name="__codelineno-15-42"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b3 = {b3}"</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Forklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+=</td>
+<td>Adderer og tildeler værdien af en variabel med en værdi.</td>
+</tr>
+<tr>
+<td>-=</td>
+<td>Subtraherer og tildeler værdien af en variabel med en værdi.</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>Multiplicerer og tildeler værdien af en variabel med en værdi.</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>Dividerer og tildeler værdien af en variabel med en værdi.</td>
+</tr>
+<tr>
+<td>++</td>
+<td>Forøger en variabel med en.</td>
+</tr>
+<tr>
+<td>--</td>
+<td>Formindsker en variabel med en.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
+<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">a</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
+<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>
+<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">50</span><span class="p">;</span>
+<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b = {b}"</span><span class="p">);</span>
+<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b = {b}"</span><span class="p">);</span>
+<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="n">b</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b = {b}"</span><span class="p">);</span>
+<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a>
+<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="kt">int</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"c = {c}"</span><span class="p">);</span>
+<a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+<a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"c = {c}"</span><span class="p">);</span>
+<a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="n">c</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="m">2</span><span class="p">;</span>
+<a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"c = {c}"</span><span class="p">);</span>
+<a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a>
+<a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-23" id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"d = {d}"</span><span class="p">);</span>
+<a href="#__codelineno-16-24" id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="n">d</span><span class="o">++</span><span class="p">;</span>
+<a href="#__codelineno-16-25" id="__codelineno-16-25" name="__codelineno-16-25"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"d = {d}"</span><span class="p">);</span>
+<a href="#__codelineno-16-26" id="__codelineno-16-26" name="__codelineno-16-26"></a>
+<a href="#__codelineno-16-27" id="__codelineno-16-27" name="__codelineno-16-27"></a><span class="kt">int</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+<a href="#__codelineno-16-28" id="__codelineno-16-28" name="__codelineno-16-28"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"e = {e}"</span><span class="p">);</span>
+<a href="#__codelineno-16-29" id="__codelineno-16-29" name="__codelineno-16-29"></a><span class="n">e</span><span class="o">--</span><span class="p">;</span>
+<a href="#__codelineno-16-30" id="__codelineno-16-30" name="__codelineno-16-30"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"e = {e}"</span><span class="p">);</span>
+<a href="#__codelineno-16-31" id="__codelineno-16-31" name="__codelineno-16-31"></a>
+<a href="#__codelineno-16-32" id="__codelineno-16-32" name="__codelineno-16-32"></a><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a href="#__codelineno-16-33" id="__codelineno-16-33" name="__codelineno-16-33"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">f</span><span class="o">++</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<a href="#__codelineno-16-34" id="__codelineno-16-34" name="__codelineno-16-34"></a><span class="p">{</span>
+<a href="#__codelineno-16-35" id="__codelineno-16-35" name="__codelineno-16-35"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"f = 1"</span><span class="p">);</span>
+<a href="#__codelineno-16-36" id="__codelineno-16-36" name="__codelineno-16-36"></a><span class="p">}</span>
+<a href="#__codelineno-16-37" id="__codelineno-16-37" name="__codelineno-16-37"></a><span class="c1">// nu er f = 2</span>
+<a href="#__codelineno-16-38" id="__codelineno-16-38" name="__codelineno-16-38"></a>
+<a href="#__codelineno-16-39" id="__codelineno-16-39" name="__codelineno-16-39"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">--</span><span class="n">f</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">)</span><span class="w">   </span><span class="c1">// f = 1 igen (før check)</span>
+<a href="#__codelineno-16-40" id="__codelineno-16-40" name="__codelineno-16-40"></a><span class="p">{</span>
+<a href="#__codelineno-16-41" id="__codelineno-16-41" name="__codelineno-16-41"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"f = 1"</span><span class="p">);</span>
+<a href="#__codelineno-16-42" id="__codelineno-16-42" name="__codelineno-16-42"></a><span class="p">}</span>
+</code></pre></div>
+<!-- > opgave:{ navn:"Brug af variabler (tal)", beskrivelse:"Simpel brug af forskellige tal og operatorer (løsning med video)", url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Variabler-tal/Opgave/index.md"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-40-1">Opgave 40-1</h2>
+<p>Simpel brug af forskellige tal og operatorer (løsning med video) (kode til søgning: EAB)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Variabler-tal/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<h3 id="overflow">Overflow</h3>
+<p>Brug checked hvis overflow skal skabe exception</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="p">{</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">    </span><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">255</span><span class="p">;</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b={b}"</span><span class="p">);</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="w">    </span><span class="n">b</span><span class="o">++</span><span class="p">;</span>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b={b}"</span><span class="p">);</span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="p">}</span>
+<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a>
+<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="k">checked</span>
+<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="p">{</span>
+<a href="#__codelineno-17-10" id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="w">    </span><span class="kt">byte</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">255</span><span class="p">;</span>
+<a href="#__codelineno-17-11" id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b={b}"</span><span class="p">);</span>
+<a href="#__codelineno-17-12" id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="w">    </span><span class="c1">// b++; skaber et overflow</span>
+<a href="#__codelineno-17-13" id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="andre-datatyper">Andre datatyper</h2>
+<p>Der findes flere andre datatyper som ikke er så brugt:</p>
+<table>
+<thead>
+<tr>
+<th>.NET</th>
+<th>C#</th>
+<th>Forklaring</th>
+<th>Spænd</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System.SByte</td>
+<td>sbyte</td>
+<td>8-bit heltal med fortegn</td>
+<td>-127 til 128</td>
+</tr>
+<tr>
+<td>System.UInt16</td>
+<td>ushort</td>
+<td>16-bit heltal uden fortegn</td>
+<td>0 til 65,535</td>
+</tr>
+<tr>
+<td>System.UInt32</td>
+<td>uint</td>
+<td>32-bit heltal uden fortegn</td>
+<td>0 til 4.294.967.295</td>
+</tr>
+<tr>
+<td>System.UInt64</td>
+<td>ulong</td>
+<td>64-bit heltal uden fortegn</td>
+<td>0 til 18.446.744.073.709.551.615</td>
+</tr>
+</tbody>
+</table>
+<h3 id="store-heltal">Store heltal</h3>
+<p>Hvis man ønsker meget store helttal - som i tal uden en nedre eller øvre grænse - kan du bruge strukturen System.Numerics.BigInterger. Se mere på</p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger">https://docs.microsoft.com/en-us/dotnet/api/system.numerics.biginteger</a></p>
+<h3 id="komplekse-tal">Komplekse tal</h3>
+<p>Hvis man ønsker at regne med komplekse tal findes der i frameworket strukturen System.Numerics.Complex. Den består af både et reelt og et imaginært tal. Se mere på</p>
+<p><a href="https://docs.microsoft.com/en-us/dotnet/api/system.numerics.complex">https://docs.microsoft.com/en-us/dotnet/api/system.numerics.complex</a></p>
+<h2 id="formatering-af-tal">Formatering af tal</h2>
+<!-- > video:{ id:"cFltj7rN0b", titel:"Formatering af tal", længde: 5 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Formatering af tal (5 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFltj7rN0b" target="_blank">Se video</a></p>
+</div>
+<p>Mange muligheder</p>
+<ul>
+<li>Brug af ToString()</li>
+<li>Formateringstegn hos MS <a href="https://goo.gl/BH4kaX">Standard Numeric Format Strings</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">tal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">20034.3347</span><span class="p">;</span><span class="w">                  </span><span class="c1">// gælder også for heltal</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">tal</span><span class="p">.</span><span class="n">ToString</span><span class="p">());</span><span class="w">        </span><span class="c1">// rå konvertering</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">tal</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"N2"</span><span class="p">));</span><span class="w">    </span><span class="c1">// Brug af tusindtalsseparator og decimaler</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">tal</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"N3"</span><span class="p">));</span><span class="w">    </span><span class="c1">// Brug af tusindtalsseparator og decimaler</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">tal</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"F2"</span><span class="p">));</span><span class="w">    </span><span class="c1">// Decimaler</span>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">tal</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"C2"</span><span class="p">));</span><span class="w">    </span><span class="c1">// Beløb</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="kt">double</span><span class="w"> </span><span class="n">pct</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.25</span><span class="p">;</span>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">pct</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"P2"</span><span class="p">));</span><span class="w">    </span><span class="c1">// Procent og decimaler</span>
+<a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a>
+<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a>
+<a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="c1">// til en-US</span>
+<a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span>
+<a href="#__codelineno-18-14" id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="w">    </span><span class="n">tal</span><span class="p">.</span><span class="n">ToString</span><span class="p">(</span><span class="s">"N2"</span><span class="p">,</span>
+<a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CultureInfo</span><span class="p">(</span><span class="s">"en-US"</span><span class="p">)));</span><span class="w">  </span><span class="c1">// 20,034.33</span>
+<a href="#__codelineno-18-16" id="__codelineno-18-16" name="__codelineno-18-16"></a>
+<a href="#__codelineno-18-17" id="__codelineno-18-17" name="__codelineno-18-17"></a><span class="c1">// Du kan også overveje at sætte kultur på selve applikationen (tråden)</span>
+<a href="#__codelineno-18-18" id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="n">System</span><span class="p">.</span><span class="n">Threading</span><span class="p">.</span><span class="n">Thread</span><span class="p">.</span><span class="n">CurrentThread</span><span class="p">.</span><span class="n">CurrentCulture</span><span class="w"> </span><span class="o">=</span>
+<a href="#__codelineno-18-19" id="__codelineno-18-19" name="__codelineno-18-19"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CultureInfo</span><span class="p">(</span><span class="s">"en-US"</span><span class="p">);</span>
+<a href="#__codelineno-18-20" id="__codelineno-18-20" name="__codelineno-18-20"></a><span class="c1">// Herefter er alt på amerikansk</span>
+</code></pre></div>
+<h2 id="sand-eller-falsk">Sand eller falsk</h2>
+<!-- > video:{ id:"cFlUcErPVD", titel:"Bool-variablen og tilhørende operatorer", længde: 6 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Bool-variablen og tilhørende operatorer (6 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlUcErPVD" target="_blank">Se video</a></p>
+</div>
+<p>System.Boolean er typenavnet men man bruger typisk bool</p>
+<table>
+<thead>
+<tr>
+<th>.NET</th>
+<th>C#</th>
+<th>Forklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System.Boolean</td>
+<td>bool</td>
+<td>True/False (8 bit)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="standard-operatorer">Standard operatorer</h3>
+<table>
+<thead>
+<tr>
+<th>Operatorer</th>
+<th>Forklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>Lig med</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>Forskellig fra</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>Større end</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>Mindre end</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>Større end og ligmed</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>Mindre end og ligmed</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>And (logisk)</td>
+</tr>
+<tr>
+<td>||</td>
+<td>Or (logisk)</td>
+</tr>
+<tr>
+<td>!</td>
+<td>Not (modsat)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="bit-relaterede-operatorer">Bit relaterede operatorer</h3>
+<table>
+<thead>
+<tr>
+<th>Operatorer</th>
+<th>Forklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>And (bit)</td>
+</tr>
+<tr>
+<td>|</td>
+<td>Or (bit)</td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>Xor (bit)</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>Shift (bit)</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>Shift (bit)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kt">bool</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kt">bool</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="kt">bool</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">!</span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="kt">bool</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="kt">bool</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a>
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a>
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="m">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">)</span>
+<a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="p">{</span>
+<a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="p">}</span>
+<a href="#__codelineno-19-18" id="__codelineno-19-18" name="__codelineno-19-18"></a>
+<a href="#__codelineno-19-19" id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">false</span><span class="p">)</span>
+<a href="#__codelineno-19-20" id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="p">{</span>
+<a href="#__codelineno-19-21" id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="p">}</span>
+<a href="#__codelineno-19-22" id="__codelineno-19-22" name="__codelineno-19-22"></a>
+<a href="#__codelineno-19-23" id="__codelineno-19-23" name="__codelineno-19-23"></a><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">false</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">true</span><span class="p">)</span>
+<a href="#__codelineno-19-24" id="__codelineno-19-24" name="__codelineno-19-24"></a><span class="p">{</span>
+<a href="#__codelineno-19-25" id="__codelineno-19-25" name="__codelineno-19-25"></a><span class="p">}</span>
+<a href="#__codelineno-19-26" id="__codelineno-19-26" name="__codelineno-19-26"></a>
+<a href="#__codelineno-19-27" id="__codelineno-19-27" name="__codelineno-19-27"></a>
+<a href="#__codelineno-19-28" id="__codelineno-19-28" name="__codelineno-19-28"></a><span class="c1">// Avanceret</span>
+<a href="#__codelineno-19-29" id="__codelineno-19-29" name="__codelineno-19-29"></a><span class="kt">int</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span><span class="w">        </span><span class="c1">// 00001010 = 10</span>
+<a href="#__codelineno-19-30" id="__codelineno-19-30" name="__codelineno-19-30"></a><span class="kt">int</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">22</span><span class="p">;</span><span class="w">        </span><span class="c1">// 00010110 = 22</span>
+<a href="#__codelineno-19-31" id="__codelineno-19-31" name="__codelineno-19-31"></a>
+<a href="#__codelineno-19-32" id="__codelineno-19-32" name="__codelineno-19-32"></a><span class="kt">int</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w">    </span><span class="c1">// 00000010 = 2  (AND)</span>
+<a href="#__codelineno-19-33" id="__codelineno-19-33" name="__codelineno-19-33"></a><span class="kt">int</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w">    </span><span class="c1">// 00011110 = 30 (OR)</span>
+<a href="#__codelineno-19-34" id="__codelineno-19-34" name="__codelineno-19-34"></a><span class="kt">int</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="n">t2</span><span class="p">;</span><span class="w">    </span><span class="c1">// 00011100 = 28 (XOR)</span>
+<a href="#__codelineno-19-35" id="__codelineno-19-35" name="__codelineno-19-35"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">    </span><span class="c1">// 00010100 = 20 (shift left)</span>
+<a href="#__codelineno-19-36" id="__codelineno-19-36" name="__codelineno-19-36"></a><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="m">1</span><span class="p">;</span><span class="w">    </span><span class="c1">// 00000101 = 5 (shift right)</span>
+<a href="#__codelineno-19-37" id="__codelineno-19-37" name="__codelineno-19-37"></a>
+<a href="#__codelineno-19-38" id="__codelineno-19-38" name="__codelineno-19-38"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
+<a href="#__codelineno-19-39" id="__codelineno-19-39" name="__codelineno-19-39"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b = {b}"</span><span class="p">);</span>
+<a href="#__codelineno-19-40" id="__codelineno-19-40" name="__codelineno-19-40"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"c = {c}"</span><span class="p">);</span>
+<a href="#__codelineno-19-41" id="__codelineno-19-41" name="__codelineno-19-41"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"d = {d}"</span><span class="p">);</span>
+<a href="#__codelineno-19-42" id="__codelineno-19-42" name="__codelineno-19-42"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"e = {e}"</span><span class="p">);</span>
+<a href="#__codelineno-19-43" id="__codelineno-19-43" name="__codelineno-19-43"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"f = {f}"</span><span class="p">);</span>
+<a href="#__codelineno-19-44" id="__codelineno-19-44" name="__codelineno-19-44"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"g = {g}"</span><span class="p">);</span>
+<a href="#__codelineno-19-45" id="__codelineno-19-45" name="__codelineno-19-45"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"h = {h}"</span><span class="p">);</span>
+<a href="#__codelineno-19-46" id="__codelineno-19-46" name="__codelineno-19-46"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"i = {i}"</span><span class="p">);</span>
+<a href="#__codelineno-19-47" id="__codelineno-19-47" name="__codelineno-19-47"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"j = {j}"</span><span class="p">);</span>
+<a href="#__codelineno-19-48" id="__codelineno-19-48" name="__codelineno-19-48"></a>
+<a href="#__codelineno-19-49" id="__codelineno-19-49" name="__codelineno-19-49"></a><span class="cm">/*</span>
+<a href="#__codelineno-19-50" id="__codelineno-19-50" name="__codelineno-19-50"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-19-51" id="__codelineno-19-51" name="__codelineno-19-51"></a>
+<a href="#__codelineno-19-52" id="__codelineno-19-52" name="__codelineno-19-52"></a><span class="cm">a = True</span>
+<a href="#__codelineno-19-53" id="__codelineno-19-53" name="__codelineno-19-53"></a><span class="cm">b = False</span>
+<a href="#__codelineno-19-54" id="__codelineno-19-54" name="__codelineno-19-54"></a><span class="cm">c = True</span>
+<a href="#__codelineno-19-55" id="__codelineno-19-55" name="__codelineno-19-55"></a><span class="cm">d = False</span>
+<a href="#__codelineno-19-56" id="__codelineno-19-56" name="__codelineno-19-56"></a><span class="cm">e = True</span>
+<a href="#__codelineno-19-57" id="__codelineno-19-57" name="__codelineno-19-57"></a><span class="cm">f = 2</span>
+<a href="#__codelineno-19-58" id="__codelineno-19-58" name="__codelineno-19-58"></a><span class="cm">g = 30</span>
+<a href="#__codelineno-19-59" id="__codelineno-19-59" name="__codelineno-19-59"></a><span class="cm">h = 28</span>
+<a href="#__codelineno-19-60" id="__codelineno-19-60" name="__codelineno-19-60"></a><span class="cm">i = 20</span>
+<a href="#__codelineno-19-61" id="__codelineno-19-61" name="__codelineno-19-61"></a><span class="cm">j = 5</span>
+<a href="#__codelineno-19-62" id="__codelineno-19-62" name="__codelineno-19-62"></a>
+<a href="#__codelineno-19-63" id="__codelineno-19-63" name="__codelineno-19-63"></a><span class="cm">*/</span>
+</code></pre></div>
+<h3 id="bonus-info-det-behver-du-ikke-vide-men">Bonus info (det behøver du ikke vide… men… )</h3>
+<p>Check lige <a href="https://en.wikipedia.org/wiki/George_Boole">George Boole</a> (1815-1864) - ham alle IT udviklere bør kende til.</p>
+<ul>
+<li>Far til boolsk algebra<ul>
+<li>Logiske beregninger/formler med klasser/set af elementer (ikke tal) og operatorer som eksempelvis + (or), x (and) og 1 (not)</li>
+</ul>
+</li>
+</ul>
+<p>Og check <a href="https://en.wikipedia.org/wiki/Claude_Shannon">Claude Shannon</a> (1916-2001), som videre udviklede George Boole’s tanker til elektroniske kredsløb omkring 1937.</p>
+<p>Og medens du er igang - <a href="https://en.wikipedia.org/wiki/John_Bardeen">John Bardeen</a> (1908-1991), <a href="https://en.wikipedia.org/wiki/William_Shockley">William Bradford Shockley</a> (1910-1989) and <a href="https://en.wikipedia.org/wiki/Walter_Houser_Brattain">Walter Houser Brattain</a> (1902-1987) - som fik Nobel prisen i Fysik i 1956 for deres arbejde indenfor halvledere og transitorer.</p>
+<p>Og sluttelig <a href="https://en.wikipedia.org/wiki/Jack_Kilby">Jack Kilby</a> (1923-2005) som opfandt IC kredse i 1950’erne (Nobel prisen i fysik i 2000).</p>
+<p>Fra George Boole til moderne CPU’er - så der er en grund til at en bool hedder en bool ;)</p>
+<h2 id="dato-og-tid">Dato og tid</h2>
+<!-- > video:{ id:"cFlUXerPDL", titel:"DateTime og TimeSpan", længde: 13 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video DateTime og TimeSpan (13 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlUXerPDL" target="_blank">Se video</a></p>
+</div>
+<p>System.DateTime</p>
+<ul>
+<li>ticks (100 nanosekunder) fra og med 1. januar i år 1,</li>
+<li>intet alias (som System.Int32=int)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>.NET</th>
+<th>C#</th>
+<th>Forklaring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System.DateTime</td>
+<td>(findes ikke)</td>
+<td>ticks fra 1/1/1 (<a href="http://alexpinsker.blogspot.com/2011/10/what-is-size-of-datetime-type-in-c.html">64 bit</a>)</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span><span class="w">   </span><span class="c1">// nu</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1">// eller System.DateTime a = DateTime.Now;</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="c1">// ingen dato-literal ala (endnu)</span>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="c1">// DateTime x = #2017-5-5#; (VIRKER IKKE)</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="c1">// man skal bruge new DateTime(...)</span>
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a>
+<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="m">2017</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">00</span><span class="p">);</span><span class="w">     </span><span class="c1">// angivet dato og tid</span>
+<a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a>
+<a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a>
+<a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="m">2017</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="p">);</span><span class="w"> </span><span class="c1">// angivet dato</span>
+<a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a>
+<a href="#__codelineno-20-16" id="__codelineno-20-16" name="__codelineno-20-16"></a>
+<a href="#__codelineno-20-17" id="__codelineno-20-17" name="__codelineno-20-17"></a>
+<a href="#__codelineno-20-18" id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="o">*/</span>
+</code></pre></div>
+<p>Mange metoder og egenskaber til datoberegninger</p>
+<ul>
+<li><a href="https://goo.gl/NnYQ2c">DateTime Struct - MS ref</a></li>
+<li>Formatering af datoer (MS): <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings">Custom Date and Time Format Strings</a></li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span><span class="w">   </span><span class="c1">// nu</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">AddDays</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">AddHours</span><span class="p">(</span><span class="m">26</span><span class="p">);</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">AddSeconds</span><span class="p">(</span><span class="m">2000</span><span class="p">);</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Måned {a.Month}"</span><span class="p">);</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Dag {a.Day}"</span><span class="p">);</span>
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"År {a.Year}"</span><span class="p">);</span>
+<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Dag på året {a.DayOfYear}"</span><span class="p">);</span>
+<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a>
+<a href="#__codelineno-21-16" id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Ugedag {a.DayOfWeek.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-17" id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Lille dato streng {a.ToShortDateString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-18" id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Stor dato streng {a.ToLongDateString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-19" id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Lille tid streng {a.ToShortTimeString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-20" id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Stor tid streng {a.ToLongTimeString()}"</span><span class="p">);</span>
+<a href="#__codelineno-21-21" id="__codelineno-21-21" name="__codelineno-21-21"></a>
+<a href="#__codelineno-21-22" id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="c1">// Brug af ToString med forskellige formateringstegn</span>
+<a href="#__codelineno-21-23" id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"dd-MM-yyyy HH:ss {a.ToString("</span><span class="n">dd</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">yyyy</span><span class="w"> </span><span class="n">HH</span><span class="p">:</span><span class="n">ss</span><span class="s">")}"</span><span class="p">);</span>
+<a href="#__codelineno-21-24" id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"MMMMM {a.ToString("</span><span class="n">MMMMM</span><span class="s">")}"</span><span class="p">);</span>
+<a href="#__codelineno-21-25" id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"MMM {a.ToString("</span><span class="n">MMM</span><span class="s">")}"</span><span class="p">);</span>
+<a href="#__codelineno-21-26" id="__codelineno-21-26" name="__codelineno-21-26"></a>
+<a href="#__codelineno-21-27" id="__codelineno-21-27" name="__codelineno-21-27"></a>
+<a href="#__codelineno-21-28" id="__codelineno-21-28" name="__codelineno-21-28"></a><span class="c1">// Ugenummer (brug Calendar for den konkrete kultur)</span>
+<a href="#__codelineno-21-29" id="__codelineno-21-29" name="__codelineno-21-29"></a><span class="kt">var</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CultureInfo</span><span class="p">(</span><span class="s">"da-DK"</span><span class="p">);</span>
+<a href="#__codelineno-21-30" id="__codelineno-21-30" name="__codelineno-21-30"></a><span class="kt">var</span><span class="w"> </span><span class="n">nr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">c</span><span class="p">.</span><span class="n">Calendar</span><span class="p">.</span><span class="n">GetWeekOfYear</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">,</span>
+<a href="#__codelineno-21-31" id="__codelineno-21-31" name="__codelineno-21-31"></a><span class="w">    </span><span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CalendarWeekRule</span><span class="p">.</span><span class="n">FirstDay</span><span class="p">,</span>
+<a href="#__codelineno-21-32" id="__codelineno-21-32" name="__codelineno-21-32"></a><span class="w">    </span><span class="n">DayOfWeek</span><span class="p">.</span><span class="n">Monday</span><span class="p">);</span>
+<a href="#__codelineno-21-33" id="__codelineno-21-33" name="__codelineno-21-33"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Ugenummer {nr}"</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="forskel-mellem-to-datetime-variabler">Forskel mellem to DateTime-variabler</h3>
+<p>Brug System.TimeSpan.</p>
+<ul>
+<li>Kan også bruges til at repræsentere tid uden dato.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="c1">// Beregninger</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">a</span><span class="p">;</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="m">2017</span><span class="p">,</span><span class="w"> </span><span class="m">6</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="m">2017</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">,</span><span class="w"> </span><span class="m">24</span><span class="p">,</span><span class="w"> </span><span class="m">18</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">00</span><span class="p">);</span>
+<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">System</span><span class="p">.</span><span class="n">TimeSpan</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">Subtract</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// Forskellen mellem a og b</span>
+<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Forskel mellem a og b i dage = {c.TotalDays}"</span><span class="p">);</span>
+<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Forskel mellem a og b i timer = {c.TotalHours}"</span><span class="p">);</span>
+<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"Forskel mellem a og b i minutter = {c.TotalMinutes}"</span><span class="p">);</span>
+<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a>
+<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="c1">// Tid</span>
+<a href="#__codelineno-22-12" id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">;</span>
+<a href="#__codelineno-22-13" id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="n">TimeSpan</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">TimeOfDay</span><span class="p">;</span>
+<a href="#__codelineno-22-14" id="__codelineno-22-14" name="__codelineno-22-14"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"e = {e.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-22-15" id="__codelineno-22-15" name="__codelineno-22-15"></a><span class="n">TimeSpan</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">(</span><span class="m">13</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-22-16" id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"f = {f.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-22-17" id="__codelineno-22-17" name="__codelineno-22-17"></a><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-22-18" id="__codelineno-22-18" name="__codelineno-22-18"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"f = {f.ToString()}"</span><span class="p">);</span>
+<a href="#__codelineno-22-19" id="__codelineno-22-19" name="__codelineno-22-19"></a>
+<a href="#__codelineno-22-20" id="__codelineno-22-20" name="__codelineno-22-20"></a><span class="c1">// Hvis man ønsker at formatere et TimeSpan er det (af en eller anden grund)</span>
+<a href="#__codelineno-22-21" id="__codelineno-22-21" name="__codelineno-22-21"></a><span class="c1">// nemmest at konvertere til en DateTime, og så benytte almindelige formateringstegn</span>
+<a href="#__codelineno-22-22" id="__codelineno-22-22" name="__codelineno-22-22"></a><span class="n">TimeSpan</span><span class="w"> </span><span class="n">a1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">(</span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="m">23</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-22-23" id="__codelineno-22-23" name="__codelineno-22-23"></a><span class="n">DateTime</span><span class="w"> </span><span class="n">b1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateTime</span><span class="p">(</span><span class="n">a1</span><span class="p">.</span><span class="n">Ticks</span><span class="p">);</span>
+<a href="#__codelineno-22-24" id="__codelineno-22-24" name="__codelineno-22-24"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"b1 = {b1.ToString("</span><span class="n">HH</span><span class="p">:</span><span class="n">mm</span><span class="s">")}"</span><span class="p">);</span>
+<a href="#__codelineno-22-25" id="__codelineno-22-25" name="__codelineno-22-25"></a>
+<a href="#__codelineno-22-26" id="__codelineno-22-26" name="__codelineno-22-26"></a><span class="cm">/*</span>
+<a href="#__codelineno-22-27" id="__codelineno-22-27" name="__codelineno-22-27"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-22-28" id="__codelineno-22-28" name="__codelineno-22-28"></a>
+<a href="#__codelineno-22-29" id="__codelineno-22-29" name="__codelineno-22-29"></a><span class="cm">Forskel mellem a og b i dage = 206,770833333333</span>
+<a href="#__codelineno-22-30" id="__codelineno-22-30" name="__codelineno-22-30"></a><span class="cm">Forskel mellem a og b i timer = 4962,5</span>
+<a href="#__codelineno-22-31" id="__codelineno-22-31" name="__codelineno-22-31"></a><span class="cm">Forskel mellem a og b i minutter = 297750</span>
+<a href="#__codelineno-22-32" id="__codelineno-22-32" name="__codelineno-22-32"></a><span class="cm">e = 16:01:39.0850165</span>
+<a href="#__codelineno-22-33" id="__codelineno-22-33" name="__codelineno-22-33"></a><span class="cm">f = 13:00:00</span>
+<a href="#__codelineno-22-34" id="__codelineno-22-34" name="__codelineno-22-34"></a><span class="cm">f = 14:30:00</span>
+<a href="#__codelineno-22-35" id="__codelineno-22-35" name="__codelineno-22-35"></a><span class="cm">b1 = 09:23</span>
+<a href="#__codelineno-22-36" id="__codelineno-22-36" name="__codelineno-22-36"></a><span class="cm">*/</span>
+</code></pre></div>
+<h3 id="datetimeoffset">DateTimeOffset</h3>
+<p>Der findes ligeledes en DateTimeOffset-struktur, som minder meget om DateTime-strukturen. Den kan benyttes hvis man ønsker større kontrol over tidzoner. Se mere på <a href="https://docs.microsoft.com/en-us/dotnet/standard/datetime/choosing-between-datetime">https://docs.microsoft.com/en-us/dotnet/standard/datetime/choosing-between-datetime</a>.</p>
+<h3 id="dateonly-og-timeonly">DateOnly og TimeOnly</h3>
+<p>I C# 10 kom DateOnly og TimeOnly der som navnet antyder udelukkende indeholder dato og tid.</p>
+<p>Her er DateOnly i brug:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="n">DateOnly</span><span class="w"> </span><span class="n">d1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateOnly</span><span class="p">(</span><span class="m">2021</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">,</span><span class="w"> </span><span class="m">31</span><span class="p">);</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d1</span><span class="p">.</span><span class="n">Year</span><span class="p">);</span><span class="w">      </span><span class="c1">// 2021</span>
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d1</span><span class="p">.</span><span class="n">Month</span><span class="p">);</span><span class="w">     </span><span class="c1">// 5</span>
+<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d1</span><span class="p">.</span><span class="n">Day</span><span class="p">);</span><span class="w">       </span><span class="c1">// 31</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d1</span><span class="p">.</span><span class="n">DayOfWeek</span><span class="p">);</span><span class="w"> </span><span class="c1">// Mandag</span>
+<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="c1">// Manipulation</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="n">DateOnly</span><span class="w"> </span><span class="n">d2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d1</span><span class="p">.</span><span class="n">AddMonths</span><span class="p">(</span><span class="m">1</span><span class="p">);</span>
+<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d2</span><span class="p">);</span>
+<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a>
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="kt">int</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d2</span><span class="p">.</span><span class="n">DayNumber</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">d1</span><span class="p">.</span><span class="n">DayNumber</span><span class="p">;</span>
+<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{days} dage mellem {d1} og {d2}"</span><span class="p">);</span>
+<a href="#__codelineno-23-13" id="__codelineno-23-13" name="__codelineno-23-13"></a>
+<a href="#__codelineno-23-14" id="__codelineno-23-14" name="__codelineno-23-14"></a><span class="n">DateOnly</span><span class="w"> </span><span class="n">d3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateOnly</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="s">"24 Dec 2021"</span><span class="p">,</span><span class="w"> </span><span class="s">"dd MMM yyyy"</span><span class="p">,</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">);</span>
+<a href="#__codelineno-23-15" id="__codelineno-23-15" name="__codelineno-23-15"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">d3</span><span class="p">);</span>
+<a href="#__codelineno-23-16" id="__codelineno-23-16" name="__codelineno-23-16"></a>
+<a href="#__codelineno-23-17" id="__codelineno-23-17" name="__codelineno-23-17"></a><span class="n">DateOnly</span><span class="w"> </span><span class="n">nu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateOnly</span><span class="p">.</span><span class="n">FromDateTime</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">Today</span><span class="p">);</span>
+<a href="#__codelineno-23-18" id="__codelineno-23-18" name="__codelineno-23-18"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">nu</span><span class="p">);</span>
+<a href="#__codelineno-23-19" id="__codelineno-23-19" name="__codelineno-23-19"></a>
+<a href="#__codelineno-23-20" id="__codelineno-23-20" name="__codelineno-23-20"></a><span class="n">DateTime</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d3</span><span class="p">.</span><span class="n">ToDateTime</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">TimeOnly</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">));</span>
+<a href="#__codelineno-23-21" id="__codelineno-23-21" name="__codelineno-23-21"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">dt</span><span class="p">);</span>
+</code></pre></div>
+<p>Og her TimeOnly</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">TimeOnly</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TimeOnly</span><span class="p">(</span><span class="m">16</span><span class="p">,</span><span class="w"> </span><span class="m">30</span><span class="p">);</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">Hour</span><span class="p">);</span><span class="w">      </span><span class="c1">// 16</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">Minute</span><span class="p">);</span><span class="w">    </span><span class="c1">// 30</span>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">Second</span><span class="p">);</span><span class="w">    </span><span class="c1">// 0</span>
+<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a>
+<a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="n">TimeOnly</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">AddHours</span><span class="p">(</span><span class="m">10</span><span class="p">);</span><span class="w">  </span><span class="c1">// 02:30</span>
+<a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a>
+<a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="c1">// Hvor mange dage er der i 'overskud'</span>
+<a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="n">TimeOnly</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">AddMinutes</span><span class="p">(</span><span class="m">5000</span><span class="p">,</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">wrappedDays</span><span class="p">);</span><span class="w"> </span><span class="c1">// 13:50, 3 (3 dage efter)</span>
+<a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a>
+<a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a>
+<a href="#__codelineno-24-12" id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="c1">// Pas på rækkefølge når der trækkes fra</span>
+<a href="#__codelineno-24-13" id="__codelineno-24-13" name="__codelineno-24-13"></a><span class="n">TimeOnly</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TimeOnly</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-24-14" id="__codelineno-24-14" name="__codelineno-24-14"></a><span class="n">TimeOnly</span><span class="w"> </span><span class="n">t5</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">TimeOnly</span><span class="p">(</span><span class="m">21</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">);</span>
+<a href="#__codelineno-24-15" id="__codelineno-24-15" name="__codelineno-24-15"></a><span class="n">TimeSpan</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t5</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t4</span><span class="p">;</span><span class="w">   </span><span class="c1">// 19</span>
+<a href="#__codelineno-24-16" id="__codelineno-24-16" name="__codelineno-24-16"></a><span class="n">TimeSpan</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t4</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">t5</span><span class="p">;</span><span class="w">   </span><span class="c1">// 5</span>
+<a href="#__codelineno-24-17" id="__codelineno-24-17" name="__codelineno-24-17"></a>
+<a href="#__codelineno-24-18" id="__codelineno-24-18" name="__codelineno-24-18"></a><span class="n">TimeOnly</span><span class="w"> </span><span class="n">t6</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeOnly</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="s">"5:00 pm"</span><span class="p">,</span><span class="w"> </span><span class="s">"h:mm tt"</span><span class="p">,</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Globalization</span><span class="p">.</span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">);</span><span class="w">  </span><span class="c1">// 17:00</span>
+<a href="#__codelineno-24-19" id="__codelineno-24-19" name="__codelineno-24-19"></a>
+<a href="#__codelineno-24-20" id="__codelineno-24-20" name="__codelineno-24-20"></a><span class="c1">// Til TimeSpan</span>
+<a href="#__codelineno-24-21" id="__codelineno-24-21" name="__codelineno-24-21"></a><span class="n">TimeSpan</span><span class="w"> </span><span class="n">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t6</span><span class="p">.</span><span class="n">ToTimeSpan</span><span class="p">();</span><span class="w">      </span><span class="c1">// "17:00:00"</span>
+<a href="#__codelineno-24-22" id="__codelineno-24-22" name="__codelineno-24-22"></a>
+<a href="#__codelineno-24-23" id="__codelineno-24-23" name="__codelineno-24-23"></a><span class="c1">// Til DateTime</span>
+<a href="#__codelineno-24-24" id="__codelineno-24-24" name="__codelineno-24-24"></a><span class="n">DateTime</span><span class="w"> </span><span class="n">dt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DateOnly</span><span class="p">(</span><span class="m">1970</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">).</span><span class="n">ToDateTime</span><span class="p">(</span><span class="n">t6</span><span class="p">);</span>
+<a href="#__codelineno-24-25" id="__codelineno-24-25" name="__codelineno-24-25"></a>
+<a href="#__codelineno-24-26" id="__codelineno-24-26" name="__codelineno-24-26"></a><span class="n">TimeOnly</span><span class="w"> </span><span class="n">nu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TimeOnly</span><span class="p">.</span><span class="n">FromDateTime</span><span class="p">(</span><span class="n">DateTime</span><span class="p">.</span><span class="n">Now</span><span class="p">);</span>
+<a href="#__codelineno-24-27" id="__codelineno-24-27" name="__codelineno-24-27"></a>
+<a href="#__codelineno-24-28" id="__codelineno-24-28" name="__codelineno-24-28"></a><span class="c1">// I mellem ...</span>
+<a href="#__codelineno-24-29" id="__codelineno-24-29" name="__codelineno-24-29"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">nu</span><span class="p">.</span><span class="n">IsBetween</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">))</span>
+<a href="#__codelineno-24-30" id="__codelineno-24-30" name="__codelineno-24-30"></a><span class="p">{</span>
+<a href="#__codelineno-24-31" id="__codelineno-24-31" name="__codelineno-24-31"></a>
+<a href="#__codelineno-24-32" id="__codelineno-24-32" name="__codelineno-24-32"></a><span class="p">}</span>
+<a href="#__codelineno-24-33" id="__codelineno-24-33" name="__codelineno-24-33"></a><span class="k">else</span>
+<a href="#__codelineno-24-34" id="__codelineno-24-34" name="__codelineno-24-34"></a><span class="p">{</span>
+<a href="#__codelineno-24-35" id="__codelineno-24-35" name="__codelineno-24-35"></a>
+<a href="#__codelineno-24-36" id="__codelineno-24-36" name="__codelineno-24-36"></a><span class="p">}</span>
+</code></pre></div>
+<!-- > opgave:{ navn:"Brug af DateTime og TimeSpan", beskrivelse:"Opret og beregn på både DateTime og TimeSpan-variabler",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Variabler-DatoTid/Opgave/index.md" } -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-40-2">Opgave 40-2</h2>
+<p>Opret og beregn på både DateTime og TimeSpan-variabler (kode til søgning: EAC)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Variabler-DatoTid/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<h2 id="implicit-typekonvertering">Implicit typekonvertering</h2>
+<!-- > video:{ id:"cqjo2ptnfK", titel:"Implicit typekonvertering", længde: 3 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Implicit typekonvertering (3 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqjo2ptnfK" target="_blank">Se video</a></p>
+</div>
+<p>Konvertering fra en lille datatype til en stor datatype</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/implicittypekonvertering.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/implicittypekonvertering.png"/></a></p>
+<table>
+<thead>
+<tr>
+<th>Datatype</th>
+<th>Kan implicit konverteres til</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byte</td>
+<td>short, int, long, float, double eller decimal</td>
+</tr>
+<tr>
+<td>short</td>
+<td>int, long, float, double eller decimal</td>
+</tr>
+<tr>
+<td>int</td>
+<td>long, float, double eller decimal</td>
+</tr>
+<tr>
+<td>long</td>
+<td>float, double eller decimal</td>
+</tr>
+<tr>
+<td>float</td>
+<td>double</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1">// Implicit (fra lille til stor)</span>
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">lilleHeltal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3000000</span><span class="p">;</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="kt">long</span><span class="w"> </span><span class="n">stortHeltal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lilleHeltal</span><span class="p">;</span>
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="kt">double</span><span class="w"> </span><span class="n">reeltTal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lilleHeltal</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="explicit-typekonvertering">Explicit typekonvertering</h2>
+<!-- > video:{ id:"cqjo2Jtnhk", titel:"Explicit typekonvertering", længde: 4 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Explicit typekonvertering (4 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqjo2Jtnhk" target="_blank">Se video</a></p>
+</div>
+<p>Konvertering fra en stor datatype til en lille datatype</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/eksplicittypekonvertering.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/eksplicittypekonvertering.png"/></a></p>
+<p>brug System.Convert som indeholder en masse konverteringsmetoder.</p>
+<ul>
+<li>ToInt32()</li>
+<li>ToDouble()</li>
+<li>ToBoolean()</li>
+<li>ToChar()</li>
+</ul>
+<p>og mange flere.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4030.75</span><span class="p">;</span>
+<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">a</span><span class="p">);</span><span class="w">  </span><span class="c1">// 4.031</span>
+<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"100"</span><span class="p">;</span>
+<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="kt">int</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">c</span><span class="p">);</span><span class="w">  </span><span class="c1">// 100</span>
+<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="c1">// forudsætter afvikling på en dansk maskine</span>
+<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="kt">string</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"23,45"</span><span class="p">;</span>
+<a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="kt">double</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToDouble</span><span class="p">(</span><span class="n">e</span><span class="p">);</span><span class="w">  </span><span class="c1">// 23.45</span>
+<a href="#__codelineno-26-8" id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="kt">string</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"2012-7-23"</span><span class="p">;</span>
+<a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="n">DateTime</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToDateTime</span><span class="p">(</span><span class="n">g</span><span class="p">);</span><span class="w">  </span><span class="c1">// 2012-07-23</span>
+<a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="kt">string</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"2019-8-1 15:35"</span><span class="p">;</span>
+<a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="n">DateTime</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">Convert</span><span class="p">.</span><span class="n">ToDateTime</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w">  </span><span class="c1">// 2019-08-01 15:15</span>
+</code></pre></div>
+<h3 id="lidt-mere-avanceret">Lidt mere avanceret</h3>
+<p>De fleste simple typer indeholder også en <code>[type].Parse</code>:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kt">string</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"434"</span><span class="p">;</span>
+<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">int</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">double</span><span class="p">.</span><span class="n">Parse</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+</code></pre></div>
+<p>Konvertering en af tekst som indeholder en dato kan være ret kompleks. Derfor indeholder DateTime-typen en statisk metode <a href="https://docs.microsoft.com/en-us/dotnet/api/system.datetime.parseexact?view=net-6.0">ParseExact</a>, som kan være brugbar. Den konverterer en streng til en dato ved hjælp af en skabelon og en evt kultur (typisk bruge CultureInfo.InvariantCulture (format er ikke er bundet til en kultur), men man kan benytte en specifik kultur).</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Globalization</span><span class="p">;</span>
+<a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>
+<a href="#__codelineno-28-3" id="__codelineno-28-3" name="__codelineno-28-3"></a><span class="kt">string</span><span class="w"> </span><span class="n">tekst</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">;</span>
+<a href="#__codelineno-28-4" id="__codelineno-28-4" name="__codelineno-28-4"></a><span class="n">DateTime</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<a href="#__codelineno-28-5" id="__codelineno-28-5" name="__codelineno-28-5"></a>
+<a href="#__codelineno-28-6" id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="n">tekst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"2022|07"</span><span class="p">;</span>
+<a href="#__codelineno-28-7" id="__codelineno-28-7" name="__codelineno-28-7"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"yyyy|MM"</span><span class="p">;</span>
+<a href="#__codelineno-28-8" id="__codelineno-28-8" name="__codelineno-28-8"></a><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="n">tekst</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="n">CultureInfo</span><span class="p">.</span><span class="n">InvariantCulture</span><span class="p">);</span>
+<a href="#__codelineno-28-9" id="__codelineno-28-9" name="__codelineno-28-9"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+<a href="#__codelineno-28-10" id="__codelineno-28-10" name="__codelineno-28-10"></a>
+<a href="#__codelineno-28-11" id="__codelineno-28-11" name="__codelineno-28-11"></a><span class="n">tekst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"10. juli 2022"</span><span class="p">;</span>
+<a href="#__codelineno-28-12" id="__codelineno-28-12" name="__codelineno-28-12"></a><span class="n">format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"D"</span><span class="p">;</span>
+<a href="#__codelineno-28-13" id="__codelineno-28-13" name="__codelineno-28-13"></a><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">ParseExact</span><span class="p">(</span><span class="n">tekst</span><span class="p">,</span><span class="w"> </span><span class="n">format</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CultureInfo</span><span class="p">(</span><span class="s">"da-DK"</span><span class="p">));</span>
+<a href="#__codelineno-28-14" id="__codelineno-28-14" name="__codelineno-28-14"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+</code></pre></div>
+<p>Alternativt kan man i nogen sammenhæng benytte <code>([type])</code> ved konvertering - men pas på ved tal. Benyttes mest ved referencebaserede variabler:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4030.75</span><span class="p">;</span>
+<a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">a</span><span class="p">;</span><span class="w">  </span><span class="c1">// 4.030 -- PAS PÅ</span>
+</code></pre></div>
+<!-- > opgave:{ navn:"Regnemaskine (typekonvertering)", beskrivelse: "Brug af System.Convert samt ToString/Formatering (løsning med video)", url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Variabler-regnemaskine/Opgave/index.md", Sortering:5} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-40-3">Opgave 40-3</h2>
+<p>Brug af System.Convert samt ToString/Formatering (løsning med video) (kode til søgning: EAD)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Variabler-regnemaskine/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<p>Vi ser nærmere på de simple variabler i modul om hukommelsesteori senere</p>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+      Copyright © 2023 Michell Cronberg
+    </div>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="mailto:michell@cronbeg.dk" rel="noopener" target="_blank" title="">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M352 0c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9L370.7 96 201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L416 141.3l41.4 41.4c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V32c0-17.7-14.3-32-32-32H352zM80 32C35.8 32 0 67.8 0 112v320c0 44.2 35.8 80 80 80h320c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v112c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16h112c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"></path></svg>
+</a>
+<a class="md-social__link" href="https://goo.gl/iVjaqF" rel="noopener" target="_blank" title="goo.gl">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="javascripts/tablesort.min.js"></script>
+<script src="javascripts/tablesort.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
