@@ -5,18 +5,18 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="400_Git.html" rel="prev"/>
-<link href="420_IntroMonoGame.html" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
+<link href="../links.html" rel="prev"/>
+<link href="../opgaver.html" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
-<title>WinForm intro - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
+<title>Noter - Grundlæggende C#</title>
+<link href="../assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-<link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -27,14 +27,14 @@
                 body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
                 body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
                 body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
-                </style><script src="assets/javascripts/glightbox.min.js"></script></head>
+                </style><script src="../assets/javascripts/glightbox.min.js"></script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#winform-intro">
+<a class="md-skip" href="#noter-cs202303">
           Skip to content
         </a>
 </div>
@@ -42,7 +42,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Grundlæggende C#" class="md-header__button md-logo" data-md-component="logo" href="." title="Grundlæggende C#">
+<a aria-label="Grundlæggende C#" class="md-header__button md-logo" data-md-component="logo" href=".." title="Grundlæggende C#">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              WinForm intro
+              Noter
             
           </span>
 </div>
@@ -109,37 +109,37 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="index.html">
+<a class="md-tabs__link" href="../index.html">
         Introduktion
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="040_simplevariabler.html">
+<a class="md-tabs__link" href="../040_simplevariabler.html">
         Det grundlæggende
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="080_Klasser.html">
+<a class="md-tabs__link" href="../080_Klasser.html">
         Det objektorienterede
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="120_Delegates.html">
+<a class="md-tabs__link" href="../120_Delegates.html">
         Det funktionsorienterede
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="150_LINQ2Objects.html">
+<a class="md-tabs__link" href="../150_LINQ2Objects.html">
         Det videregående
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link md-tabs__link--active" href="128_OperatorOverload.html">
+<a class="md-tabs__link md-tabs__link--active" href="../128_OperatorOverload.html">
         Diverse
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="opgaver.html">
+<a class="md-tabs__link" href="../opgaver.html">
       Opgaver
     </a>
 </li>
@@ -155,7 +155,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Grundlæggende C#" class="md-nav__button md-logo" data-md-component="logo" href="." title="Grundlæggende C#">
+<a aria-label="Grundlæggende C#" class="md-nav__button md-logo" data-md-component="logo" href=".." title="Grundlæggende C#">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
 </a>
     Grundlæggende C#
@@ -174,27 +174,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="index.html">
+<a class="md-nav__link" href="../index.html">
         Introduktion til kurset
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="010_introcs.html">
+<a class="md-nav__link" href="../010_introcs.html">
         Introdution til .NET
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="020_omcs.html">
+<a class="md-nav__link" href="../020_omcs.html">
         Om C#-sproget
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="025_IntroduktiontilVS.html">
+<a class="md-nav__link" href="../025_IntroduktiontilVS.html">
         Introduktion til Visual Studio
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="030_KonsolApp.html">
+<a class="md-nav__link" href="../030_KonsolApp.html">
         En konsol applikation
       </a>
 </li>
@@ -214,42 +214,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="040_simplevariabler.html">
+<a class="md-nav__link" href="../040_simplevariabler.html">
         Simple variabler
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="045_tegnogtekster.html">
+<a class="md-nav__link" href="../045_tegnogtekster.html">
         Tegn og tekster
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="048_Konstanter.html">
+<a class="md-nav__link" href="../048_Konstanter.html">
         Konstanter
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="050_flow.html">
+<a class="md-nav__link" href="../050_flow.html">
         Programflow
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="060_metoder.html">
+<a class="md-nav__link" href="../060_metoder.html">
         Metoder
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="065_Fejlh%C3%A5ndtering.html">
+<a class="md-nav__link" href="../065_Fejlh%C3%A5ndtering.html">
         Fejlhåndtering
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="070_Arrays.html">
+<a class="md-nav__link" href="../070_Arrays.html">
         Arrays
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="075_Samlinger.html">
+<a class="md-nav__link" href="../075_Samlinger.html">
         Samlinger
       </a>
 </li>
@@ -269,42 +269,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="080_Klasser.html">
+<a class="md-nav__link" href="../080_Klasser.html">
         Klasser
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="082_Stukturer.html">
+<a class="md-nav__link" href="../082_Stukturer.html">
         Stukturer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="087_Hukommelsesteori.html">
+<a class="md-nav__link" href="../087_Hukommelsesteori.html">
         Hukommelsesteori
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="089_OOP.html">
+<a class="md-nav__link" href="../089_OOP.html">
         OOP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="090_Indkapsling.html">
+<a class="md-nav__link" href="../090_Indkapsling.html">
         Indkapsling
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="100_Arv.html">
+<a class="md-nav__link" href="../100_Arv.html">
         Nedarvning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="105_Polymofi.html">
+<a class="md-nav__link" href="../105_Polymofi.html">
         Polymorfi
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="110_Interfaces.html">
+<a class="md-nav__link" href="../110_Interfaces.html">
         Interface
       </a>
 </li>
@@ -324,12 +324,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="120_Delegates.html">
+<a class="md-nav__link" href="../120_Delegates.html">
         Delegates
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="125_Events.html">
+<a class="md-nav__link" href="../125_Events.html">
         Hændelser
       </a>
 </li>
@@ -349,37 +349,37 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="150_LINQ2Objects.html">
+<a class="md-nav__link" href="../150_LINQ2Objects.html">
         LINQ to Objects
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="155_ASync.html">
+<a class="md-nav__link" href="../155_ASync.html">
         Asynkron programmering
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="126_Avancerede_typer.html">
+<a class="md-nav__link" href="../126_Avancerede_typer.html">
         Avancerede typer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="165_Kommunikation_med_filer.html">
+<a class="md-nav__link" href="../165_Kommunikation_med_filer.html">
         Kommunikation med filer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="167_Kommunikation_over_HTTP.html">
+<a class="md-nav__link" href="../167_Kommunikation_over_HTTP.html">
         Kommunikation over HTTP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="168_Kommunikation_med_databaser.html">
+<a class="md-nav__link" href="../168_Kommunikation_med_databaser.html">
         Kommunikation med databaser
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="175_Serialisering.html">
+<a class="md-nav__link" href="../175_Serialisering.html">
         Serialisering
       </a>
 </li>
@@ -399,68 +399,113 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="128_OperatorOverload.html">
+<a class="md-nav__link" href="../128_OperatorOverload.html">
         Operator overload
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="130_Generics.html">
+<a class="md-nav__link" href="../130_Generics.html">
         Generiske typer og medlemmer
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="170_Konfiguration.html">
+<a class="md-nav__link" href="../170_Konfiguration.html">
         Brug af konfigurationsfiler
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="185_Globalisering.html">
+<a class="md-nav__link" href="../185_Globalisering.html">
         Globalisering
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="195_RegEx.html">
+<a class="md-nav__link" href="../195_RegEx.html">
         RegEx
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="160_XML.html">
+<a class="md-nav__link" href="../160_XML.html">
         Kommunikation med XML
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="200_Reflection.html">
+<a class="md-nav__link" href="../200_Reflection.html">
         Reflection
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="169_ExpressionTrees.html">
+<a class="md-nav__link" href="../169_ExpressionTrees.html">
         Expression trees
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="330_Terning.html">
+<a class="md-nav__link" href="../330_Terning.html">
         En OOP terning
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="360_Optimering.html">
+<a class="md-nav__link" href="../360_Optimering.html">
         Optimering
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="400_Git.html">
+<a class="md-nav__link" href="../400_Git.html">
         Git og GitHub
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../410_IntroduktionWinForm.html">
+        WinForm intro
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../420_IntroMonoGame.html">
+        MonoGame intro
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../500_EkstraOpgaver.html">
+        Ekstra opgaver
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Certificering/basiccert.html">
+        C# certificering
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sharplab.html">
+        Brug af SharpLap
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chatgpt.html">
+        Brug af ChatGPT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../konsol_udvidet.html">
+        En udvidet konsol applikation
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kursus.zip">
+        Download
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../links.html">
+        Links
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          WinForm intro
+          Noter
           <span class="md-nav__icon md-icon"></span>
 </label>
-<a class="md-nav__link md-nav__link--active" href="410_IntroduktionWinForm.html">
-        WinForm intro
+<a class="md-nav__link md-nav__link--active" href="cs202303.html">
+        Noter
       </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -469,102 +514,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#om-modulet">
-    Om modulet
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#brugerflader-til-windows">
-    Brugerflader til Windows
-  </a>
-<nav aria-label="Brugerflader til Windows" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hvorfor-winform">
-    Hvorfor WinForm
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hvorfor-wpf">
-    Hvorfor WPF
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#valg-af-ui">
-    Valg af UI
+<a class="md-nav__link" href="#deltagere">
+    Deltagere
   </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#windows-forms-app">
-    Windows Forms App
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hndelser-og-egenskaber">
-    Hændelser og egenskaber
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#eksempel-pa-en-applikation">
-    Eksempel på en applikation
-  </a>
-</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="420_IntroMonoGame.html">
-        MonoGame intro
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="500_EkstraOpgaver.html">
-        Ekstra opgaver
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="Certificering/basiccert.html">
-        C# certificering
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="sharplab.html">
-        Brug af SharpLap
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="chatgpt.html">
-        Brug af ChatGPT
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="konsol_udvidet.html">
-        En udvidet konsol applikation
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="kursus.zip">
-        Download
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="links.html">
-        Links
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="Noter/cs202303.html">
-        Noter
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="opgaver.html">
+<a class="md-nav__link" href="../opgaver.html">
         Opgaver
       </a>
 </li>
@@ -583,47 +544,8 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#om-modulet">
-    Om modulet
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#brugerflader-til-windows">
-    Brugerflader til Windows
-  </a>
-<nav aria-label="Brugerflader til Windows" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hvorfor-winform">
-    Hvorfor WinForm
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hvorfor-wpf">
-    Hvorfor WPF
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#valg-af-ui">
-    Valg af UI
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#windows-forms-app">
-    Windows Forms App
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#hndelser-og-egenskaber">
-    Hændelser og egenskaber
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#eksempel-pa-en-applikation">
-    Eksempel på en applikation
+<a class="md-nav__link" href="#deltagere">
+    Deltagere
   </a>
 </li>
 </ul>
@@ -633,45 +555,20 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="winform-intro">WinForm intro</h1>
-<h2 id="om-modulet">Om modulet</h2>
-<p>I dette modul bliver du introduceret til udvikling af en brugerflade til <strong>Windows</strong> ved hjælp af Microsofts gamle (men stadig benyttede) programmeringsmodel. Der er udelukkende tale om en introduktion for at få dig igang. Bemærk at både WinForm og WPF (Windows Presentation Foundation) udelukkende er til Windows på trods af at de fra .NET Core 3.0 kan skabes udfra en .NET Core skabelon.</p>
-<h2 id="brugerflader-til-windows">Brugerflader til Windows</h2>
-<p>I .NET er der to måder at skabe en brugerflade til Windows</p>
-<ul>
-<li>WinForm</li>
-<li>WPF (Windows Presentation Foundation)</li>
-</ul>
-<p>WinForm er en gammel teknologi der bygger over på de indbyggede kontroller i Windows, og WPF er en nyere teknologi som er fri af Windows, og benytter opmærkninger (XMAL) til at skabe brugerfladen. Begge teknologier er stadig benyttet og i princippet kan du vælge frit. De kan begge benyttes under .NET Core (3.x), men der udvikles ikke på nogen af dem fra Microsoft side.</p>
-<h3 id="hvorfor-winform">Hvorfor WinForm</h3>
-<ul>
-<li>Nemt og hurtigt</li>
-<li>Meget dokumentation og mange brugerflade kontroller at vælge imellem</li>
-</ul>
-<h3 id="hvorfor-wpf">Hvorfor WPF</h3>
-<ul>
-<li>Ikke afhængig af Windows kontroller og man kan dermed skabe alle typer af brugerflade elementer</li>
-<li>Brugen af XMAL</li>
-<li>Effektiv databinding</li>
-</ul>
-<h3 id="valg-af-ui">Valg af UI</h3>
-<p>Hvis du er nybegynder vil jeg anbefale WinForm - det er nemt at komme igang med og der findes en masse information på nettet.</p>
-<h2 id="windows-forms-app">Windows Forms App</h2>
-<p>Du kan oprette en ny WinForm applikation ved at søge efter WinForm eller vælge “C#”, “Windows” og “Desktop” i dropdown-listerne.</p>
-<p>I skrivende stund (feb 2020) er WinForm og WPF designerne ikke fuldt integreret i .NET Core projekter i VS 2019. De er <a href="https://devblogs.microsoft.com/dotnet/updates-to-net-core-windows-forms-designer-in-visual-studio-16-5-preview-1/">på vej</a> (er i preview versionen af VS) men indtil da kan du bare benytte .NET Framework og ikke .NET Core.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/winform_project_framework.png"><img height="400px" src="http://cdn.cronberg.dk/kurser/cs/winform_project_framework.png"/></a></p>
-<p>Når applikationen er oprettet kan du dobbeltklikke på “Form1” i <strong>Solution Explorer-vinduet</strong> for at aktivere designeren (hvis ikke den er det i forvejen), og finde <strong>Toolbox-vinduet</strong> på View-menuen. Så kan du begynde at trække kontroller som tekstbokse, knapper, lister med videre til formularen. Det sidste vigtige vinduet i WinForm-udvikling er <strong>Properties-vinduet</strong>, som typisk dukker op under Solution Explorer-vinduet når du har markeret en kontrol eller en formular i designeren.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/winformvs.png"><img height="400px" src="http://cdn.cronberg.dk/kurser/cs/winformvs.png"/></a></p>
-<h2 id="hndelser-og-egenskaber">Hændelser og egenskaber</h2>
-<p>En kontrol har en masse egenskaber (farve, størrelse, font mv) og en masse hændelser (click, keypress, drag mv), og begge kan findes i Properties-vinduet ved at klikke på ikoner for egenskaber og hændelser</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/winforn_properties.png"><img height="300px" src="http://cdn.cronberg.dk/kurser/cs/winforn_properties.png"/></a></p>
-<h2 id="eksempel-pa-en-applikation">Eksempel på en applikation</h2>
-<!-- > video:{ id:"cYnQX6w0hO", titel:"Eksempel på en applikation", længde: 11 } -->
-<div class="admonition note">
-<p class="admonition-title"> Video Eksempel på en applikation (11 min.)</p>
-<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cYnQX6w0hO" target="_blank">Se video</a></p>
-</div>
-<p>Den nemmeste måde at forstå WinForm er at se et kort eksempel på udvikling af en simpel applikation.</p>
+<h1 id="noter-cs202303">Noter CS202303</h1>
+<h2 id="deltagere">Deltagere</h2>
+<p><strong>Fysisk</strong></p>
+<p>Simon
+Hans
+Clara
+Alaxander
+Simon
+Erik
+Anna</p>
+<p><strong>Virtuelt</strong></p>
+<p>Xu
+Chris
+Lars</p>
 </article>
 </div>
 </div>
@@ -699,9 +596,9 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.b78d2936.min.js"></script>
-<script src="javascripts/tablesort.min.js"></script>
-<script src="javascripts/tablesort.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="../javascripts/tablesort.min.js"></script>
+<script src="../javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
