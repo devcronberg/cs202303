@@ -8,9 +8,9 @@
 <link href="075_Samlinger.html" rel="prev"/>
 <link href="082_Stukturer.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
 <title>Klasser - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -800,7 +800,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="klasser">Klasser</h1>
+<div><h1 id="klasser">Klasser</h1>
 <h2 id="om-modulet">Om modulet</h2>
 <p>I dette modul vil du lære den helt grundlæggende teori bag klasser. Du skal have en forståelse for de forskellige typer af medlemmer du kan bruge til at <strong><em>designe</em></strong> dine klasser, og øve dig i at kunne finde entiteter i en applikation, og abstrahere disse til klasser. Dem kan du så bruge til at skabe objekter af.</p>
 <p>Der er en del opgaver i dette modul som du bør bruge lidt tid på.</p>
@@ -825,7 +825,7 @@
 <li>Medarbejder, Leder, Butikker, Åbningstider</li>
 </ul>
 <p>En type består af</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/type.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/type.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/type.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/type.png"/></a></p>
 <p>Synlighed</p>
 <ul>
 <li>internal (kun typer som ikke er placeret i en anden type)</li>
@@ -889,7 +889,7 @@
 <li>= gemmer referencen til objektet i variablen</li>
 <li>Hvis et objekt på heap’en ikke er refereret bliver det automatisk fjernet</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/cl.gif"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/cl.gif"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/cl.gif"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/cl.gif"/></a></p>
 <h2 id="systemobject">System.Object</h2>
 <!-- > video:{ id:"cqji67OsJF", titel:"System.Object", længde: 3 } -->
 <div class="admonition note">
@@ -897,7 +897,7 @@
 <p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqji67OsJF" target="_blank">Se video</a></p>
 </div>
 <p>Alle referencebaserede typer arver fra System.Object, og alle værdibaserede typer er kompatible med System.ValueType, som arver fra System.Object.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/object_valuetype.png"><img src="http://cdn.cronberg.dk/kurser/cs/object_valuetype.png" width="300"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/object_valuetype.png"><img src="http://cdn.cronberg.dk/kurser/cs/object_valuetype.png" width="300"/></a></p>
 <p>Derfor består alle typer af metoderne:</p>
 <table>
 <thead>
@@ -949,7 +949,7 @@
 <li>Felter (fields) er objekternes data</li>
 <li>kan være alle typer</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/felter.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/felter.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/felter.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/felter.png"/></a></p>
 <ul>
 <li>Synlighed</li>
 <li>private (default)<ul>
@@ -996,7 +996,7 @@
 <a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>
 <a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="cm">*/</span>
 </code></pre></div>
-<h2 0="0" id="readonly-felter" niveau:="niveau:">readonly felter</h2>
+<h2 id="readonly-felter" niveau:="niveau:">readonly felter</h2>
 <ul>
 <li>Et readonly felt kan kun intialiseres i constructor eller ved intialisering og kan derefter ikke tilrettes</li>
 </ul>
@@ -1379,7 +1379,7 @@ brugt i ældre kode):</p>
 <p>Der må gerne tilføjes mange attributter og man kan skabe dem selv, men lige nu skal du bare vide at det er en måde at tilføje ekstra information til klasser.</p>
 <h2 id="klassediagram">Klassediagram</h2>
 <p>I Visual Studio har du mulighed for at indsætte et klasse diagram der viser hvad en klasse består af og eventuelt sammenhæng med andre klasser.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/kaeledyr.png"><img alt="" src="http://cdn.cronberg.dk/kurser/cs/kaeledyr.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/kaeledyr.png"><img alt="" src="http://cdn.cronberg.dk/kurser/cs/kaeledyr.png"/></a></p>
 <p>Du kan indsætte et klassediagram ved at højreklikke på projektet, vælge “Add” og “New item…” - her skal du lede efter “Class Diagram”.</p>
 <p>Hvis du ikke kan finde klassediagrammet er det muligvis din installation mangler et kryds i en checkboks. Åbn Visual Studio Installer, vælg Modify, og under “Individual components” skal du finde “Class designer” og sætte kryds i checkboksen.</p>
 <h2 id="nullable-reference-types">Nullable reference types</h2>
@@ -1528,7 +1528,7 @@ brugt i ældre kode):</p>
 <a href="#__codelineno-28-16" id="__codelineno-28-16" name="__codelineno-28-16"></a><span class="cm">10</span>
 <a href="#__codelineno-28-17" id="__codelineno-28-17" name="__codelineno-28-17"></a>
 <a href="#__codelineno-28-18" id="__codelineno-28-18" name="__codelineno-28-18"></a><span class="cm">*/</span>
-</code></pre></div>
+</code></pre></div></div>
 </article>
 </div>
 </div>
@@ -1557,7 +1557,7 @@ brugt i ældre kode):</p>
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
 <script src="javascripts/tablesort.min.js"></script>
 <script src="javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

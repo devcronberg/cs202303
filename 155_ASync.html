@@ -8,9 +8,9 @@
 <link href="150_LINQ2Objects.html" rel="prev"/>
 <link href="126_Avancerede_typer.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
 <title>Asynkron programmering - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -838,7 +838,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="asynkron-programmering">Asynkron programmering</h1>
+<div><h1 id="asynkron-programmering">Asynkron programmering</h1>
 <h2 id="om-modulet">Om modulet</h2>
 <p>I dette modul vil vi fokusere på asynkron programmering og brugen af Task-typen.</p>
 <h2 id="om-asykron-programmering">Om asykron programmering</h2>
@@ -982,7 +982,7 @@ tre operationer, som tager 500 ms hver, kan afvikles nogenlunde uafhængigt af h
 </code></pre></div>
 <h2 id="optimering-af-en-brugerflade-applikation">Optimering af en brugerflade applikation</h2>
 <p>For at se fordelen ved brugen af async kode i en UI applikation kan du hente følgende</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="https://raw.githubusercontent.com/devcronberg/async-winform-task-await/master/async.png"><img alt="" src="https://raw.githubusercontent.com/devcronberg/async-winform-task-await/master/async.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="https://raw.githubusercontent.com/devcronberg/async-winform-task-await/master/async.png"><img alt="" src="https://raw.githubusercontent.com/devcronberg/async-winform-task-await/master/async.png"/></a></p>
 <p>Du kan finde det her</p>
 <p><a class="magiclink magiclink-github magiclink-repository" href="https://github.com/devcronberg/async-winform-task-await" title="GitHub Repository: devcronberg/async-winform-task-await">devcronberg/async-winform-task-await</a></p>
 <p>og kan hente det ved enten af clone koden, eller blot hente projektet som en zip (klik på den store grønne knap). Åbn det i Visual Studio og klik på F5.</p>
@@ -1747,7 +1747,7 @@ tre operationer, som tager 500 ms hver, kan afvikles nogenlunde uafhængigt af h
 <a href="#__codelineno-31-24" id="__codelineno-31-24" name="__codelineno-31-24"></a><span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">Wait</span><span class="p">();</span>
 <a href="#__codelineno-31-25" id="__codelineno-31-25" name="__codelineno-31-25"></a><span class="p">}</span>
 </code></pre></div>
-<h2 1="1" id="async-streams" niveau:="niveau:">Async streams</h2>
+<h2 id="async-streams" niveau:="niveau:">Async streams</h2>
 <p>En del af C# 8 er muligheden for at benytte async stream (yield og foreach). Det er en af de mere avancerede features, men her er et simpelt eksempel.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-32-1" id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <a href="#__codelineno-32-2" id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
@@ -1778,7 +1778,7 @@ tre operationer, som tager 500 ms hver, kan afvikles nogenlunde uafhængigt af h
 <a href="#__codelineno-32-27" id="__codelineno-32-27" name="__codelineno-32-27"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-32-28" id="__codelineno-32-28" name="__codelineno-32-28"></a><span class="p">}</span>
 </code></pre></div>
-<h2 1="1" id="task-parallel-library" niveau:="niveau:">Task Parallel Library</h2>
+<h2 id="task-parallel-library" niveau:="niveau:">Task Parallel Library</h2>
 <p>TPL er en abstraktion over System.Threading med det formål at udnytte flere kerner i en CPU til ‘ægte’ parallel kode. Der er flere metoder - herunder Invoke, For, ForEach, ForAsync mv. Her er et eksempel på brug af Invoke, For og ForAsync (C# 6):</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-33-1" id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <a href="#__codelineno-33-2" id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
@@ -1911,7 +1911,7 @@ tre operationer, som tager 500 ms hver, kan afvikles nogenlunde uafhængigt af h
 <a href="#__codelineno-35-5" id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="w">    </span><span class="p">});</span>
 <a href="#__codelineno-35-6" id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="p">}</span>
 </code></pre></div>
-<p>og bemærk at der genereres en ekstra tilstandsmaskine.</p>
+<p>og bemærk at der genereres en ekstra tilstandsmaskine.</p></div>
 </article>
 </div>
 </div>
@@ -1940,7 +1940,7 @@ tre operationer, som tager 500 ms hver, kan afvikles nogenlunde uafhængigt af h
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
 <script src="javascripts/tablesort.min.js"></script>
 <script src="javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

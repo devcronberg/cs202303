@@ -8,9 +8,9 @@
 <link href="010_introcs.html" rel="prev"/>
 <link href="025_IntroduktiontilVS.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.1" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
 <title>Om C#-sproget - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -716,7 +716,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="om-c-sproget">Om C#-sproget</h1>
+<div><h1 id="om-c-sproget">Om C#-sproget</h1>
 <h2 id="om-modulet">Om modulet</h2>
 <p>Dette modul vil introducere dig til C# sproget, typer samt opbygningen af en C# applikation.</p>
 <h2 id="c-sproget">C#-sproget</h2>
@@ -1092,7 +1092,7 @@
 </ul>
 <p>I den helt grundlæggende C# kan du nøjes med at fokusere på at skabe typer baseret class og struct - og i de fleste tilfælde blot på class.</p>
 <p>Men både struct og class (og record) skal ses som en <strong>skabelon</strong> for instanser</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/typerics.png"><img src="http://cdn.cronberg.dk/kurser/cs/typerics.png" width="800"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/typerics.png"><img src="http://cdn.cronberg.dk/kurser/cs/typerics.png" width="800"/></a></p>
 <p>Instanser af klasser kaldes typisk for objekter.</p>
 <p>I disse instanser er der typisk både data (tal, tegn, datoer, referencer til andre objekter), samt metoder der kan arbejde med disse data.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Demo</span>
@@ -1189,7 +1189,7 @@
 <li>enumerations</li>
 <li>delegates</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/ns1.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/ns1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/ns1.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/ns1.png"/></a></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">NS1</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="p">{</span>
 <a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
@@ -1200,7 +1200,7 @@
 <a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="p">}</span>
 </code></pre></div>
 <p>Et namespace omkranser typer og sikre struktur og forhindre navnesammenfald</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/ns2.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/ns2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/ns2.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/ns2.png"/></a></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">NS1</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="p">{</span>
 <a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">A</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
@@ -1220,7 +1220,7 @@
 <a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="p">}</span>
 </code></pre></div>
 <p>Et namespace må gerne være i sit eget namespace (som ligger i sit eget namespace (som …))</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/ns3.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/ns3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/ns3.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/ns3.png"/></a></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">NS1</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="p">{</span>
 <a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">    </span><span class="k">namespace</span><span class="w"> </span><span class="nn">NS2</span>
@@ -1244,7 +1244,7 @@
 </code></pre></div>
 <h2 id="typer-i-typer-i-typer">Typer i typer (i typer)</h2>
 <p>I enkelte situationer kan typer også placeres i typer</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/typerityper.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/typerityper.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/typerityper.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/typerityper.png"/></a></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">NS1</span>
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">{</span>
 <a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">A</span>
@@ -1310,7 +1310,7 @@
 <a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
 <a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="p">}</span>
-</code></pre></div>
+</code></pre></div></div>
 </article>
 </div>
 </div>
@@ -1339,7 +1339,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.b78d2936.min.js"></script>
+<script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
 <script src="javascripts/tablesort.min.js"></script>
 <script src="javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
