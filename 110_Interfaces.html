@@ -993,6 +993,7 @@
 <p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeqod0Elq" target="_blank">Se video</a></p>
 </div>
 <p>Interface benyttes også tit i forbindelse med forskellige software mønstre - herunder blandt andet Dependency Injection (DI). Se følgende video og eventuelt tilhørende opgave for at få en ide om hvordan DI fungerer.</p>
+<p>Se forskellige eksempler på DI terning på <a class="magiclink magiclink-github magiclink-repository" href="https://github.com/devcronberg/DiceDI" title="GitHub Repository: devcronberg/DiceDI">devcronberg/DiceDI</a></p>
 <p>Se eventuelt også alternativ til brug af interface på <a class="magiclink magiclink-github magiclink-repository" href="https://github.com/jbogard/MediatR" title="GitHub Repository: jbogard/MediatR">jbogard/MediatR</a>.</p>
 <!-- > opgave:{navn:"Dependency Injection (DI)", niveau: 1, url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/interface-di/Opgave/index.md", beskrivelse: "Avanceret opgave i brug af interfaces til afkobling"} -->
 <div class="admonition info">
@@ -1046,6 +1047,323 @@
 <a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="w">        </span><span class="c1">// kode</span>
 <a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="p">}</span>
+</code></pre></div>
+<h1 id="interface_1">Interface</h1>
+<h2 id="om-modulet_1">Om modulet</h2>
+<p>I dette modul ser vi på brugen af interface.</p>
+<p>Som begynder er det vigtigste, at du forstår de overordnede formål med interface - altså at give compileren 100% vished for at en metode eksisterer. Du bør fokusere på den simple form for polymorfi, og måske ikke bruge så meget energi på at forstå afkobling (herunder dependency injection).</p>
+<p>Hvis du har erfaring med C# eller andre objektorienterede sprog kan du løbe eksemplerne igennem og måske kigge nærmere på det sidste afsnit.</p>
+<h2 id="generelt-om-interface_1">Generelt om interface</h2>
+<!-- > video:{ id:"cqeqlM058B", titel:"Generelt om interface", længde: 4 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Generelt om interface (4 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeqlM058B" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Interface er en navngivet samling af abstrakte medlemmer<ul>
+<li>Kompileren ved (ligesom ved arv) hvilke medlemmer der findes</li>
+</ul>
+</li>
+<li>Benyttes til at skabe samhørighed mellem klasser/strukturer<ul>
+<li>Polymorfi</li>
+<li>Afkobling</li>
+</ul>
+</li>
+<li>Ingen implementation - kun signatur/definition<ul>
+<li>Implementation skal i klasser der <strong><em>implementerer</em></strong> et interface</li>
+</ul>
+</li>
+<li>Man må gerne implementere flere interface i en klasse (i modsætning til arv)<ul>
+<li>En klasse må gerne arve fra en anden klasse <strong><em>og</em></strong> implementere et eller flere interfaces</li>
+</ul>
+</li>
+</ul>
+<h2 id="brug-af-egne-interfaces_1">Brug af egne interfaces</h2>
+<!-- > video:{ id:"cqeqIl059f", titel:"Brug af egne interfaces", længde: 12 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Brug af egne interfaces (12 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeqIl059f" target="_blank">Se video</a></p>
+</div>
+<ul>
+<li>Bør starte med I</li>
+<li>Synlighed angives ikke</li>
+<li>Interface er en reference type</li>
+<li>Skal implementeres af en klasse/struct</li>
+</ul>
+<h3 id="syntaks_1">Syntaks</h3>
+<ul>
+<li>Benyt interface-kodeordet</li>
+<li>Beskriv signatur uden access modifiers (og implementation)</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">internal</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IGem</span>
+<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="p">{</span>
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Gem</span><span class="p">();</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="w">    </span><span class="c1">// måske også..</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="w">    </span><span class="c1">// ErGemt();</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="w">    </span><span class="c1">// DatoForSidsteGem();</span>
+<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="w">    </span><span class="c1">// mv</span>
+<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="implementering_1">Implementering</h3>
+<ul>
+<li>Samme syntaks som klasser</li>
+<li>Metoder skal implementeres</li>
+<li>Brug VS til at hjælpe</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">internal</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IGem</span>
+<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">{</span>
+<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Gem</span><span class="p">();</span>
+<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">}</span>
+<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
+<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Vare</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IGem</span><span class="w"> </span><span class="p">{</span>
+<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">VareId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Varenavn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a>
+<a href="#__codelineno-14-11" id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="w">    </span><span class="c1">// Explicit</span>
+<a href="#__codelineno-14-12" id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="n">IGem</span><span class="p">.</span><span class="n">Gem</span><span class="p">()</span>
+<a href="#__codelineno-14-13" id="__codelineno-14-13" name="__codelineno-14-13"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-14-14" id="__codelineno-14-14" name="__codelineno-14-14"></a><span class="w">        </span><span class="c1">// Kode til at gemme</span>
+<a href="#__codelineno-14-15" id="__codelineno-14-15" name="__codelineno-14-15"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-14-16" id="__codelineno-14-16" name="__codelineno-14-16"></a><span class="p">}</span>
+<a href="#__codelineno-14-17" id="__codelineno-14-17" name="__codelineno-14-17"></a>
+<a href="#__codelineno-14-18" id="__codelineno-14-18" name="__codelineno-14-18"></a><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Kunde</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IGem</span>
+<a href="#__codelineno-14-19" id="__codelineno-14-19" name="__codelineno-14-19"></a><span class="p">{</span>
+<a href="#__codelineno-14-20" id="__codelineno-14-20" name="__codelineno-14-20"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">KundeId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-14-21" id="__codelineno-14-21" name="__codelineno-14-21"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-14-22" id="__codelineno-14-22" name="__codelineno-14-22"></a>
+<a href="#__codelineno-14-23" id="__codelineno-14-23" name="__codelineno-14-23"></a><span class="w">    </span><span class="c1">// Implicit</span>
+<a href="#__codelineno-14-24" id="__codelineno-14-24" name="__codelineno-14-24"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Gem</span><span class="p">()</span>
+<a href="#__codelineno-14-25" id="__codelineno-14-25" name="__codelineno-14-25"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-14-26" id="__codelineno-14-26" name="__codelineno-14-26"></a><span class="w">        </span><span class="c1">// Kode til at gemme</span>
+<a href="#__codelineno-14-27" id="__codelineno-14-27" name="__codelineno-14-27"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-14-28" id="__codelineno-14-28" name="__codelineno-14-28"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="interface-er-en-referencetype_1">Interface er en referencetype</h2>
+<!-- > video:{ id:"cqeqIg05SJ", titel:"Interface er en referencetype", længde: 8 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Interface er en referencetype (8 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeqIg05SJ" target="_blank">Se video</a></p>
+</div>
+<p>Man kan altid skabe en variabel af en interface-type, og få den til at pege på et objekt af en klasse der implementerer samme interface.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">Vare</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vare</span><span class="p">();</span>
+<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">Kunde</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Kunde</span><span class="p">();</span>
+<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">IGem</span><span class="w"> </span><span class="n">g1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vare</span><span class="p">();</span>
+<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">IGem</span><span class="w"> </span><span class="n">g2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Kunde</span><span class="p">();</span>
+</code></pre></div>
+<p>Man kan dog kun tilgå de medlemmer som interfacet definerer - men resten er jo også ligegyldigt. Man ser objektet som et objekt af interface-typen.</p>
+<h3 id="brug-af-is_1">Brug af is</h3>
+<p>Man kan naturligvis kontrollere om et objekt ER en interface-type:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Vare</span><span class="p">);</span><span class="w">   </span><span class="c1">// true</span>
+<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">IGem</span><span class="p">);</span><span class="w">   </span><span class="c1">// true</span>
+<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">v</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">Kunde</span><span class="p">);</span><span class="w">  </span><span class="c1">// false</span>
+</code></pre></div>
+<h3 id="brug-af-as-typekonvertering_1">Brug af as (typekonvertering)</h3>
+<p>Og man kan naturligvis typekonvertere til en konkret type.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">IGem</span><span class="w"> </span><span class="n">g1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Vare</span><span class="p">();</span>
+<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">Vare</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Vare</span><span class="p">;</span><span class="w">        </span><span class="c1">// v = object</span>
+<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">Kunde</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g1</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">Kunde</span><span class="p">;</span><span class="w">      </span><span class="c1">// k = null</span>
+<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>
+<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">Vare</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Vare</span><span class="p">)</span><span class="n">g1</span><span class="p">;</span><span class="w">         </span><span class="c1">// v1 = object</span>
+<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">Kunde</span><span class="w"> </span><span class="n">k1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Kunde</span><span class="p">)</span><span class="n">g1</span><span class="p">;</span><span class="w">       </span><span class="c1">// Exception</span>
+</code></pre></div>
+<h2 id="polymorfi_1">Polymorfi</h2>
+<!-- > video:{ id:"cqeq2l0EVk", titel:"Polymorfi med interface", længde: 7 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Polymorfi med interface (7 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeq2l0EVk" target="_blank">Se video</a></p>
+</div>
+<p>Interface giver mulighed for samme funktionalitet som klasser og arv - man kan skabe en liste af et interface. Alle klasser som implementerer et interface kan placeres i listen.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">internal</span><span class="w"> </span><span class="k">interface</span><span class="w"> </span><span class="n">IGem</span>
+<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="p">{</span>
+<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Gem</span><span class="p">();</span>
+<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="p">}</span>
+<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
+<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Vare</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IGem</span>
+<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="p">{</span>
+<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a>
+<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">VareId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-18-10" id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Varenavn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-18-11" id="__codelineno-18-11" name="__codelineno-18-11"></a>
+<a href="#__codelineno-18-12" id="__codelineno-18-12" name="__codelineno-18-12"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Gem</span><span class="p">()</span>
+<a href="#__codelineno-18-13" id="__codelineno-18-13" name="__codelineno-18-13"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-18-14" id="__codelineno-18-14" name="__codelineno-18-14"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Gemmer vare..."</span><span class="p">);</span>
+<a href="#__codelineno-18-15" id="__codelineno-18-15" name="__codelineno-18-15"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-18-16" id="__codelineno-18-16" name="__codelineno-18-16"></a><span class="p">}</span>
+<a href="#__codelineno-18-17" id="__codelineno-18-17" name="__codelineno-18-17"></a>
+<a href="#__codelineno-18-18" id="__codelineno-18-18" name="__codelineno-18-18"></a><span class="k">internal</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Kunde</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IGem</span>
+<a href="#__codelineno-18-19" id="__codelineno-18-19" name="__codelineno-18-19"></a><span class="p">{</span>
+<a href="#__codelineno-18-20" id="__codelineno-18-20" name="__codelineno-18-20"></a>
+<a href="#__codelineno-18-21" id="__codelineno-18-21" name="__codelineno-18-21"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">KundeId</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-18-22" id="__codelineno-18-22" name="__codelineno-18-22"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-18-23" id="__codelineno-18-23" name="__codelineno-18-23"></a>
+<a href="#__codelineno-18-24" id="__codelineno-18-24" name="__codelineno-18-24"></a>
+<a href="#__codelineno-18-25" id="__codelineno-18-25" name="__codelineno-18-25"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Gem</span><span class="p">()</span>
+<a href="#__codelineno-18-26" id="__codelineno-18-26" name="__codelineno-18-26"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-18-27" id="__codelineno-18-27" name="__codelineno-18-27"></a><span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">"Gemmer kunde..."</span><span class="p">);</span>
+<a href="#__codelineno-18-28" id="__codelineno-18-28" name="__codelineno-18-28"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-18-29" id="__codelineno-18-29" name="__codelineno-18-29"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">IGem</span><span class="o">&gt;</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">IGem</span><span class="o">&gt;</span><span class="p">();</span>
+<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">l</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Vare</span><span class="p">());</span>
+<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">l</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Kunde</span><span class="p">());</span>
+<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">l</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Vare</span><span class="p">());</span>
+<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="n">l</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Kunde</span><span class="p">());</span>
+<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a>
+<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">l</span><span class="p">)</span>
+<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="w">    </span><span class="n">item</span><span class="p">.</span><span class="n">Gem</span><span class="p">();</span>
+<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>
+<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="cm">/*</span>
+<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="cm">    Gemmer vare...</span>
+<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="cm">    Gemmer kunde...</span>
+<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="cm">    Gemmer vare...</span>
+<a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="cm">    Gemmer kunde...</span>
+<a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="cm">*/</span>
+</code></pre></div>
+<!-- > opgave:{navn:"Eget interface",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/interface-eget-interface/Opgave/index.md", beskrivelse: "Udvikling af egne interfaces og tilhørende polymorfi"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-110-1_1">Opgave 110-1</h2>
+<p>Udvikling af egne interfaces og tilhørende polymorfi (kode til søgning: BBAB)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/interface-eget-interface/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<h2 id="brug-af-icomparable_1">Brug af IComparable</h2>
+<!-- > video:{ id:"cqeq240EfF", titel:"Brug af IComparable", længde: 6 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Brug af IComparable (6 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeq240EfF" target="_blank">Se video</a></p>
+</div>
+<p>Sortering af objekter fra egne klasser kræver implementation af IComparable:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
+<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.Text</span><span class="p">;</span>
+<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a>
+<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">In4</span>
+<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="p">{</span>
+<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Person</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IComparable</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span>
+<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Alder</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">get</span><span class="p">;</span><span class="w"> </span><span class="k">set</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a>
+<a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">CompareTo</span><span class="p">(</span><span class="n">Person</span><span class="w"> </span><span class="n">other</span><span class="p">)</span>
+<a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="w">        </span><span class="p">{</span>
+<a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="w">            </span><span class="c1">//return this.Alder.CompareTo(other.Alder);</span>
+<a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Alder</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">Alder</span><span class="p">)</span>
+<a href="#__codelineno-20-16" id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<a href="#__codelineno-20-17" id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">Alder</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">other</span><span class="p">.</span><span class="n">Alder</span><span class="p">)</span>
+<a href="#__codelineno-20-18" id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">;</span>
+<a href="#__codelineno-20-19" id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<a href="#__codelineno-20-20" id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="w">        </span><span class="p">}</span>
+<a href="#__codelineno-20-21" id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-20-22" id="__codelineno-20-22" name="__codelineno-20-22"></a><span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">List</span><span class="o">&lt;</span><span class="n">In4</span><span class="p">.</span><span class="n">Person</span><span class="o">&gt;</span><span class="w"> </span><span class="n">lst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">In4</span><span class="p">.</span><span class="n">Person</span><span class="o">&gt;</span><span class="p">()</span>
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="p">{</span>
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">In4</span><span class="p">.</span><span class="n">Person</span><span class="p">(){</span><span class="w"> </span><span class="n">Alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"a"</span><span class="w"> </span><span class="p">},</span>
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">In4</span><span class="p">.</span><span class="n">Person</span><span class="p">(){</span><span class="w"> </span><span class="n">Alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">8</span><span class="p">,</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"b"</span><span class="w"> </span><span class="p">},</span>
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="w">    </span><span class="k">new</span><span class="w"> </span><span class="n">In4</span><span class="p">.</span><span class="n">Person</span><span class="p">(){</span><span class="w"> </span><span class="n">Alder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">9</span><span class="p">,</span><span class="w"> </span><span class="n">Navn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"c"</span><span class="w"> </span><span class="p">},</span>
+<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="p">};</span>
+<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">lst</span><span class="p">)</span>
+<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{item.Navn} er {item.Alder} år"</span><span class="p">);</span>
+<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="n">lst</span><span class="p">.</span><span class="n">Sort</span><span class="p">();</span>
+<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">item</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">lst</span><span class="p">)</span>
+<a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"{item.Navn} er {item.Alder} år"</span><span class="p">);</span>
+<a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a>
+<a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a>
+<a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="cm">/*</span>
+<a href="#__codelineno-21-16" id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="cm"> ---------- Output: ----------</span>
+<a href="#__codelineno-21-17" id="__codelineno-21-17" name="__codelineno-21-17"></a>
+<a href="#__codelineno-21-18" id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="cm">a er 10 år</span>
+<a href="#__codelineno-21-19" id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="cm">b er 8 år</span>
+<a href="#__codelineno-21-20" id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="cm">c er 9 år</span>
+<a href="#__codelineno-21-21" id="__codelineno-21-21" name="__codelineno-21-21"></a>
+<a href="#__codelineno-21-22" id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="cm">b er 8 år</span>
+<a href="#__codelineno-21-23" id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="cm">c er 9 år</span>
+<a href="#__codelineno-21-24" id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="cm">a er 10 år</span>
+<a href="#__codelineno-21-25" id="__codelineno-21-25" name="__codelineno-21-25"></a>
+<a href="#__codelineno-21-26" id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="cm">*/</span>
+</code></pre></div>
+<!-- > opgave:{navn:"Brug af IComparable<>",url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/interface-compare/Opgave/index.md", beskrivelse: "Brug af IComparable<> i forbindelse med sortering"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-110-2_1">Opgave 110-2</h2>
+<p>Brug af IComparable&lt;&gt; i forbindelse med sortering (kode til søgning: BBAC)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/interface-compare/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<h2 id="brug-af-idisposable_1">Brug af IDisposable</h2>
+<!-- > video:{ id:"cqeqoe0Eit", titel:"Brug af IDisposable", længde: 6 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Brug af IDisposable (6 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeqoe0Eit" target="_blank">Se video</a></p>
+</div>
+<p>Hvis man ønsker at afvikle kode når et objekt går ud af scope (tuborgklammer) kan man overveje brugen af using-strukturen. Men det kræver implementering af IDisposable og dermed Dispose():</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="k">using</span><span class="w"> </span><span class="p">(</span><span class="n">Oprydning</span><span class="p">.</span><span class="n">C</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Oprydning</span><span class="p">.</span><span class="n">C</span><span class="p">())</span>
+<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="p">{</span>
+<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="p">}</span><span class="w"> </span><span class="c1">// Dispose bliver kaldt</span>
+</code></pre></div>
+<h2 id="afkobling_1">Afkobling</h2>
+<!-- > video:{ id:"cqeqod0Elq", titel:"Længere eksempel på afkobling", længde: 16 } -->
+<div class="admonition note">
+<p class="admonition-title"> Video Længere eksempel på afkobling (16 min.)</p>
+<p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqeqod0Elq" target="_blank">Se video</a></p>
+</div>
+<p>Interface benyttes også tit i forbindelse med forskellige software mønstre - herunder blandt andet Dependency Injection (DI). Se følgende video og eventuelt tilhørende opgave for at få en ide om hvordan DI fungerer.</p>
+<p>Se forskellige eksempler på DI terning på <a class="magiclink magiclink-github magiclink-repository" href="https://github.com/devcronberg/DiceDI" title="GitHub Repository: devcronberg/DiceDI">devcronberg/DiceDI</a></p>
+<p>Se eventuelt også alternativ til brug af interface på <a class="magiclink magiclink-github magiclink-repository" href="https://github.com/jbogard/MediatR" title="GitHub Repository: jbogard/MediatR">jbogard/MediatR</a>.</p>
+<!-- > opgave:{navn:"Dependency Injection (DI)", niveau: 1, url:"https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/interface-di/Opgave/index.md", beskrivelse: "Avanceret opgave i brug af interfaces til afkobling"} -->
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<h2 id="opgave-110-3_1">Opgave 110-3</h2>
+<p>Avanceret opgave i brug af interfaces til afkobling (kode til søgning: BBAD)</p>
+<p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/interface-di/Opgave/index.md" target="_blank">Se opgave</a></p>
+</div>
+<h2 id="default-interface-methods_1">Default interface methods</h2>
+<p>I C# 8 har vi fået mulighed for at tilføje metoder til interface. Det sikre, at tidligere implementationer af et interface ikke fejler ved opdatering af et nyt interface.</p>
+<p>Antag at følgende er version 1:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="k">interface</span><span class="w"> </span><span class="n">ILogger</span>
+<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="p">{</span>
+<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="p">}</span>
+<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>
+<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ILogger</span>
+<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="p">{</span>
+<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="w">        </span><span class="c1">//</span>
+<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-23-12" id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>Men i version 2 opdateres interface, og hvis ikke der kunne angives en metode ville samtlige implementationer fejle.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="k">interface</span><span class="w"> </span><span class="n">ILogger</span>
+<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="p">{</span>
+<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">);</span>
+<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="w">    </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Log</span><span class="p">(</span><span class="s">"error"</span><span class="p">,</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="n">Message</span><span class="p">);</span>
+<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="p">}</span>
+<a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a>
+<a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="c1">// Virker fortsat!!</span>
+<a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ILogger</span>
+<a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="p">{</span>
+<a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-24-12" id="__codelineno-24-12" name="__codelineno-24-12"></a><span class="w">        </span><span class="c1">//</span>
+<a href="#__codelineno-24-13" id="__codelineno-24-13" name="__codelineno-24-13"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-24-14" id="__codelineno-24-14" name="__codelineno-24-14"></a><span class="p">}</span>
+</code></pre></div>
+<p>Den nye Log-metode kan dog overskrives hvis det ønskes:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Logger</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ILogger</span>
+<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="p">{</span>
+<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">level</span><span class="p">,</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="n">message</span><span class="p">)</span>
+<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="w">        </span><span class="c1">// kode</span>
+<a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a>
+<a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Log</span><span class="p">(</span><span class="n">Exception</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
+<a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="w">    </span><span class="p">{</span>
+<a href="#__codelineno-25-10" id="__codelineno-25-10" name="__codelineno-25-10"></a><span class="w">        </span><span class="c1">// kode</span>
+<a href="#__codelineno-25-11" id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="w">    </span><span class="p">}</span>
+<a href="#__codelineno-25-12" id="__codelineno-25-12" name="__codelineno-25-12"></a><span class="p">}</span>
 </code></pre></div></div>
 </article>
 </div>
