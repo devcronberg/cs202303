@@ -559,6 +559,15 @@
 <a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>Send, {End}{Enter}
 <a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>Send, %code%
 <a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a>return
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>#3::
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a>clipboard:= ""
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>SendInput, ^c
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>ClipWait, 2
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a>code := "" . clipboard . " o = new " . clipboard . "();"
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a>Sleep 200
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a>Send, %code%
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a>return
 </code></pre></div>
 <p>Gem scriptet et sted på disken i en .ahk-fil (eksempelvis vs.ahk), og dobbeltklik på den i Stifinder for at starte det. Prøv så i VS (eller alle andre programmer) at trykke WinTast+1.</p>
 <p>Se flere eksempler i deres dokumentation.</p></div>

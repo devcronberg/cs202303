@@ -17,3 +17,11 @@ Send, {End}{Enter}
 Send, %code%
 return
 
+#3::
+clipboard:= ""
+SendInput, ^c
+ClipWait, 2
+code := "" . clipboard . " o = new " . clipboard . "();"
+Sleep 200
+Send, %code%
+return
