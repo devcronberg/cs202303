@@ -8,9 +8,9 @@
 <link href="020_omcs.html" rel="prev"/>
 <link href="030_KonsolApp.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
 <title>Introduktion til Visual Studio - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -625,11 +625,6 @@
         Links
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="Noter/cs202303.html">
-        Noter
-      </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -763,7 +758,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="introduktion-til-visual-studio">Introduktion til Visual Studio</h1>
+<h1 id="introduktion-til-visual-studio">Introduktion til Visual Studio</h1>
 <h2 id="om-modulet">Om modulet</h2>
 <p>Dette modul vil introducere dig til Visual Studio og debuggeren.</p>
 <h2 id="installation">Installation</h2>
@@ -776,20 +771,20 @@
 <h2 id="oprettelse-af-et-projekt">Oprettelse af et projekt</h2>
 <p>Man kan skabe mange forskelige projekttyper i Visual Studio, men vi vil her udelukkende fokusere på en “Console Application (.NET Core)” for på den måde at holde fokus på koden og ikke på brugerflade. Så kan du efterfølgende selv lege med andre projekttyper.</p>
 <p>Du kan skabe en ny applikationer ved at vælge File-&gt;Project og så vælge C# i “Language” dropdown-boksen, og søge efter console. Når du først har brugt den en gang dukker projekttypen op i listen til venstre i vinduet.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/newproject.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/newproject.png"/></a></p>
 <p>Herefter kan man angive navnet på projektet og hvilken mappe det skal placeres i.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject2.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/newproject2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject2.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/newproject2.png"/></a></p>
 <h2 id="en-c-lsning">En C# løsning</h2>
 <p>En C# løsning (solution) består typisk af et eller flere projekter, og et enkelt projekt kan være en konsol applikation, web applikation, windows applikation, mobil applikation med videre. En løsning er repræsenteret ved en .sln fil.</p>
 <p>Hvert projekt kan så være opdelt i flere filer, som kompileren vil sørge for at kompilere sammen. Et projekt er repræsenteret af en .csproj fil, og består typisk af en masse .cs filer med kode samt eventuelle konfigurationsfiler.</p>
 <p>Når man skabe en konsol applikation består den altså af en .sln-fil (løsning)</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject3.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/newproject3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject3.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/newproject3.png"/></a></p>
 <p>og en .csproj-fil (projekt) samt de filer som projektet består af.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject4.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/newproject4.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/newproject4.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/newproject4.png"/></a></p>
 <p>I Visual Studio kan finde løsning, projekter og filer i “Solution Explorer”:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs1.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/vs1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs1.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/vs1.png"/></a></p>
 <p>Af andre vigtige vinduer i VS kan nævnes “Error List” vinduet hvor eventuelle kompileringsfejl dukker op.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs2.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/vs2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs2.png"><img height="400" src="http://cdn.cronberg.dk/kurser/cs/vs2.png"/></a></p>
 <h2 id="mange-kodefiler-i-et-projekt">Mange kodefiler i et projekt</h2>
 <p>Man må gerne have mange cs-filer (kodefiler) i et projekt, og kan organisere disse som man ønsker i mapper. Alle filer skal dog bestå af en typedefinition (klasse, struktur, enum med videre). Man kan sågår i den mere avancerecede C# fortælle kompileren at den skal kombinere typer. Det kan ske ved hjælp af <code>partial</code> kodeordet - herom senere.</p>
 <p>Man kan også vælge at have flere typer i samme fil - kompilereren er ligeglad.</p>
@@ -820,18 +815,18 @@
 <p>eller en kombination.</p>
 <h2 id="intellisense">IntelliSense</h2>
 <p>Når du skriver kode i Visual Studio så lær at bruge “IntelliSense” - altså at lade Visual Studio skrive så meget af kode som muligt ved at vælge på listen der automatisk dukker op. Det er en af fordelene ved at arbejde med et typestærkt sprog som C# - VS ved hvad en konkret type indeholder.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs3.png"><img height="300" src="http://cdn.cronberg.dk/kurser/cs/vs3.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs3.png"><img height="300" src="http://cdn.cronberg.dk/kurser/cs/vs3.png"/></a></p>
 <p>Hold øje med listen når du skriver, og tryk Enter eller Tab når det rigtige er valgt på listen.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs4.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs4.gif"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs4.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs4.gif"/></a></p>
 <p>Prøv den måde kan du nemt se havd en type består af, og staver ikke forkert.</p>
 <h2 id="intellicode">IntelliCode</h2>
 <p>Med VS 2022 følger (normalt) Microsofts IntelliCode extension som udvider hjælpen fsva syntaks og instruktioner med AI. Hvis du ønsker denne extension kan den disables - alternativt tilrettes under options.</p>
 <h2 id="snippets">Snippets</h2>
 <p>Lad VS gøre så meget af arbejdet som overhovedet muligt - brug kode snippets så meget du kan. Der findes en del indbyggede, og du kan oprette dine egne.</p>
 <p>Find de forskellige snippets ved at højre klikke og vælge Snippet-&gt;Insert Snippets-&gt;Visual C#</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs5.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs5.gif"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs5.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs5.gif"/></a></p>
 <p>Du kan også bruge genvejsnavnet og blot trykke 2 gange tabulering</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs6.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs6.gif"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs6.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs6.gif"/></a></p>
 <p>Her er nogle af de mere kendte snippets til C#</p>
 <ul>
 <li>for = for loop</li>
@@ -866,12 +861,12 @@
 <li><span class="keys"><kbd class="key-f2">F2</kbd></span> = rename</li>
 </ul>
 <p>Vi kommer tilbage til flere af dem senere.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs7.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs7.gif"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs7.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs7.gif"/></a></p>
 <h2 id="hjlp-fra-visual-studio">Hjælp fra Visual Studio</h2>
 <p>Når du koder vil Visual Studio forsøge at hjælpe dig så meget den kan. Det sker eksempelvis ved hjælp af et ikon af en pære.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/hj%C3%A6lp1.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/hj%C3%A6lp1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/hjælp1.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/hjælp1.png"/></a></p>
 <p>Det kan også ske ved hjælp af et ikon af en skruenøgle.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/hj%C3%A6lp2.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/hj%C3%A6lp2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/hjælp2.png"><img height="200" src="http://cdn.cronberg.dk/kurser/cs/hjælp2.png"/></a></p>
 <p>Tastaturgenvejen til hjælp er Ctrl + punktum.</p>
 <p>I starten vil du nok ikke benytte den hjælp Visual Studio tilbyder, men efterhånden som du bliver mere erfaren så prøv at være lidt nysgerrig, og lad Visual Studio ændre koden. Det er en god måde at blive lidt klogere på C# syntaks, og du kan altid fortryde en ændring.</p>
 <h2 id="kompilering">Kompilering</h2>
@@ -882,7 +877,7 @@
 <li><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-shift">Shift</kbd><span>+</span><kbd class="key-b">B</kbd></span></li>
 </ul>
 <p>Under alle omstændigheder skulle det gerne ende med en “Build succeeded” i venstre nederste hjørne.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs8.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs8.gif"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/vs8.gif"><img src="http://cdn.cronberg.dk/kurser/cs/vs8.gif"/></a></p>
 <p>Applikationen kan herefter afvikles fra konsolen (eller flyttes til server/mobil).</p>
 <h2 id="afvikling">Afvikling</h2>
 <p>En applikation kan også bygges og afvikles direkte fra VS</p>
@@ -996,7 +991,7 @@
 <a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">        </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">SleepWithDescription</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Thread</span><span class="p">.</span><span class="n">Sleep</span><span class="p">(</span><span class="m">10</span><span class="p">);</span>
 <a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">    </span><span class="p">}</span>
 <a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="p">}</span>
-</code></pre></div></div>
+</code></pre></div>
 </article>
 </div>
 </div>
@@ -1025,7 +1020,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
+<script src="assets/javascripts/bundle.ce72ebac.min.js"></script>
 <script src="javascripts/tablesort.min.js"></script>
 <script src="javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

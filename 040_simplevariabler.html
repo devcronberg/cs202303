@@ -8,9 +8,9 @@
 <link href="030_KonsolApp.html" rel="prev"/>
 <link href="045_tegnogtekster.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
 <title>Simple variabler - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -714,11 +714,6 @@
         Links
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="Noter/cs202303.html">
-        Noter
-      </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -941,7 +936,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="simple-variabler">Simple variabler</h1>
+<h1 id="simple-variabler">Simple variabler</h1>
 <h2 id="grundlggende-om-variabler">Grundlæggende om variabler</h2>
 <!-- > video:{ id:"cFlT2VrLh7", titel:"Hukommelse", længde: 9 } -->
 <div class="admonition note">
@@ -953,12 +948,12 @@
 <li>Stack</li>
 <li>Heap</li>
 </ul>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/hukommelse_program_data.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/hukommelse_program_data.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/hukommelse_program_data.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/hukommelse_program_data.png"/></a></p>
 <p>Hukommelse er jo i realiteten en samling elektroniske komponenter (porte og kredsløb) der kan gemme tal som <a href="https://da.wikipedia.org/wiki/Bin%C3%A6re_talsystem">binære værdier</a>.</p>
 <h3 id="variabler">Variabler</h3>
 <p>Alle applikationer har behov for at gemme midlertidige data, og i de fleste programmeringssprog sker dette ved hjælp af variabler.</p>
 <p>C# er typestærkt så kompileren ved præcis hvor meget der skal afsættes i hukommelsen. I stedet for at vi selv skal sørge for at allokere hukommelse, og efterfølgende holde styr på hvor i hukommelsen vi skal finde data, så stiller kompileren variabler til rådighed. I realiteten er det blot en tabel over nøgler (variabel navne) og adresser i hukommelsen samt allokeret plads.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/variabler_hukommelse.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/variabler_hukommelse.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/variabler_hukommelse.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/variabler_hukommelse.png"/></a></p>
 <h2 id="typesystemet">Typesystemet</h2>
 <!-- > video:{ id:"cqjo2jtnnn", titel:"Typesystemet", længde: 3 } -->
 <div class="admonition note">
@@ -1125,9 +1120,9 @@
 <a href="#__codelineno-7-22" id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="p">}</span>
 </code></pre></div>
 <p>Den fortæller hvilke variabler der er tilgængelige i det givne virkefelt, og hvilken værdier (eller reference) disse variabler har.</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/stackdef1.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/stackdef1.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/stackdef1.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/stackdef1.png"/></a></p>
 <p>Hvis et virkefelt er placeret i et andet virkefelt må du tegne det som en stack i en stack</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/stackdef2.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/stackdef2.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/stackdef2.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/stackdef2.png"/></a></p>
 <p>Indre virkefelter har adgang til variabler i de ydre virkefelter - ikke omvendt (og ikke virkefelter på samme niveau).</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">$"a = {a}"</span><span class="p">);</span>
@@ -1151,7 +1146,7 @@
 <p class="admonition-title"> Video Instans og statiske medlemmer (5 min.)</p>
 <p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cFlT0DrLDZ" target="_blank">Se video</a></p>
 </div>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/skabelon.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/skabelon.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/skabelon.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/skabelon.png"/></a></p>
 <p>Der er forskel på om man benytter instanser af datatypen eller typens <em>statiske</em> medlemmer</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="c1">// instans medlem</span>
@@ -1279,7 +1274,7 @@
 </code></pre></div>
 <h3 id="mest-benyttede-variabler">Mest benyttede variabler</h3>
 <p>De mest benyttede typer er int (32 bit) og double (64 bit). Begge er også default typer ved konstanter.</p>
-<h2 _2019-8-27_='"2019-8-27"' dato:="dato:" id="binre-og-hexadecimale-konstanter" niveau:="niveau:">Binære og Hexadecimale konstanter</h2>
+<h2 1_="1," _2019-8-27_='"2019-8-27"' dato:="dato:" id="binre-og-hexadecimale-konstanter" niveau:="niveau:">Binære og Hexadecimale konstanter</h2>
 <p>Der findes forskellige måder benytte binære og hexadecimale konstanter :</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="p">{</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">svaretPåAlt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="n">b101010</span><span class="p">;</span>
@@ -1288,7 +1283,7 @@
 <a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">svaretPåAlt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="n">x2A</span><span class="p">;</span>
 <a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="p">}</span>
 </code></pre></div>
-<h2 _2019-08-27_='"2019-08-27"' id="double-decimal" niveau:="niveau:" oprettet:="oprettet:">double / decimal</h2>
+<h2 1_="1," _2019-08-27_='"2019-08-27"' id="double-decimal" niveau:="niveau:" oprettet:="oprettet:">double / decimal</h2>
 <p>Pas lige på med double (64 bit) - typen er en base2 type og benytter floating point hvilke kan give nogle afrundningsfejl.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="p">{</span>
 <a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="m">1</span><span class="p">;</span>
@@ -1975,7 +1970,7 @@
 <p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqjo2ptnfK" target="_blank">Se video</a></p>
 </div>
 <p>Konvertering fra en lille datatype til en stor datatype</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/implicittypekonvertering.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/implicittypekonvertering.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/implicittypekonvertering.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/implicittypekonvertering.png"/></a></p>
 <table>
 <thead>
 <tr>
@@ -2018,7 +2013,7 @@
 <p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqjo2Jtnhk" target="_blank">Se video</a></p>
 </div>
 <p>Konvertering fra en stor datatype til en lille datatype</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/eksplicittypekonvertering.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/eksplicittypekonvertering.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/eksplicittypekonvertering.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/eksplicittypekonvertering.png"/></a></p>
 <p>brug System.Convert som indeholder en masse konverteringsmetoder.</p>
 <ul>
 <li>ToInt32()</li>
@@ -2072,7 +2067,7 @@
 <p>Brug af System.Convert samt ToString/Formatering (løsning med video) (kode til søgning: EAD)</p>
 <p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/Variabler-regnemaskine/Opgave/index.md" target="_blank">Se opgave</a></p>
 </div>
-<p>Vi ser nærmere på de simple variabler i modul om hukommelsesteori senere</p></div>
+<p>Vi ser nærmere på de simple variabler i modul om hukommelsesteori senere</p>
 </article>
 </div>
 </div>
@@ -2101,7 +2096,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
+<script src="assets/javascripts/bundle.ce72ebac.min.js"></script>
 <script src="javascripts/tablesort.min.js"></script>
 <script src="javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

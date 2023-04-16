@@ -8,9 +8,9 @@
 <link href="125_Events.html" rel="prev"/>
 <link href="155_ASync.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
 <title>LINQ to Objects - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -702,11 +702,6 @@
         Links
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="Noter/cs202303.html">
-        Noter
-      </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -917,7 +912,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="linq-to-objects">LINQ to Objects</h1>
+<h1 id="linq-to-objects">LINQ to Objects</h1>
 <h2 id="om-modulet">Om modulet</h2>
 <p>I dette model skal vi arbejde med LINQ (Language INtegrated Query), som er en af de mest geniale features i .NET. Det giver mulighed for at iterere, filtere, sortere og gruppere samlinger (lister, arrays med videre) af objekter i hukommelsen.</p>
 <p>Det er typisk svært for begyndere at forstå LINQ fordi det kræver en grundlæggende forståelse for blandt andet delegates og lambda, men du SKAL lære at bruge LINQ så du må tilbage i tidligere moduler hvis du falder af.</p>
@@ -937,7 +932,7 @@
 </ul>
 <h3 id="demo-data">Demo data</h3>
 <p>At bruge FileInfo-objekter er en god måde at lege med LINQ på. Et FileInfo-objekt repræsenterer en fil på disken, og har en masse “brugbare” egenskaber:</p>
-<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-type="image" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/fileinfo.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/fileinfo.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="http://cdn.cronberg.dk/kurser/cs/fileinfo.png"><img height="" src="http://cdn.cronberg.dk/kurser/cs/fileinfo.png"/></a></p>
 <p>Det er nemt at oprette et array af FileInfo-objekter:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// Skab en liste af filer i en mappe vi kan lege med</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kt">var</span><span class="w"> </span><span class="n">mappe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="n">IO</span><span class="p">.</span><span class="n">DirectoryInfo</span><span class="p">(</span><span class="s">@"c:\temp"</span><span class="p">);</span>
@@ -1145,7 +1140,7 @@
 <p class="admonition-title"> Video Brug af metoder i Lambda-syntaksen (10 min.)</p>
 <p><a class="md-button md-button--primary" href="https://mcronberg.screencasthost.com/watch/cqfqjlZONM" target="_blank">Se video</a></p>
 </div>
-<p>Mange af LINQ metoderne tager som argument en Func<t bool=""> (hvilket jo faktisk er en Predicate), og typisk skrives det som en ren lambda. Men blot for en god ordens skyld er der jo tale om en reference til en delegate.</t></p>
+<p>Mange af LINQ metoderne tager som argument en Func<t, bool=""> (hvilket jo faktisk er en Predicate), og typisk skrives det som en ren lambda. Men blot for en god ordens skyld er der jo tale om en reference til en delegate.</t,></p>
 <p>Her i en “rå” version:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">using</span><span class="w"> </span><span class="nn">System</span><span class="p">;</span>
 <a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="k">using</span><span class="w"> </span><span class="nn">System.IO</span><span class="p">;</span>
@@ -1760,7 +1755,7 @@
 <h2 id="opgave-150-5">Opgave 150-5</h2>
 <p>Brug af extension metoder til at udvide og forbedre LINQ to objects (kode til søgning: BFAF)</p>
 <p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/avanceretlinq-extensions/Opgave" target="_blank">Se opgave</a></p>
-</div></div>
+</div>
 </article>
 </div>
 </div>
@@ -1789,7 +1784,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
+<script src="assets/javascripts/bundle.ce72ebac.min.js"></script>
 <script src="javascripts/tablesort.min.js"></script>
 <script src="javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>

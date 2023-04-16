@@ -8,9 +8,9 @@
 <link href="195_RegEx.html" rel="prev"/>
 <link href="200_Reflection.html" rel="next"/>
 <link href="assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.4.2, mkdocs-material-9.1.3" name="generator"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.1.0" name="generator"/>
 <title>Kommunikation med XML - Grundlæggende C#</title>
-<link href="assets/stylesheets/main.c4a75a56.min.css" rel="stylesheet"/>
+<link href="assets/stylesheets/main.402914a4.min.css" rel="stylesheet"/>
 <link href="assets/stylesheets/palette.a0c5b2b5.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -589,11 +589,6 @@
         Links
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="Noter/cs202303.html">
-        Noter
-      </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -691,7 +686,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<div><h1 id="kommunikation-med-xml">Kommunikation med XML</h1>
+<h1 id="kommunikation-med-xml">Kommunikation med XML</h1>
 <h2 id="om-modulet">Om modulet</h2>
 <p>Dette modul vil introducere dig til brugen af XML på forskellige måder i C#.</p>
 <h2 id="systemxml">System.XML</h2>
@@ -712,7 +707,7 @@
 <li>SelectNodes (returnerer flere noder via XPath)</li>
 </ul>
 <h3 id="til-test">Til test</h3>
-<p></p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>&lt;bookstore&gt;
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
@@ -750,9 +745,9 @@
 <a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a>
 <a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a>&lt;/bookstore&gt;
 </code></pre></div>
-<a href="https://www.w3schools.com/xml/xml_xpath.asp">ref</a>
+<a href="https://www.w3schools.com/xml/xml_xpath.asp">ref</a></p>
 <h3 id="grundlggende-xpath-syntax">Grundlæggende XPath syntax</h3>
-<p></p><div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>//title[@lang]  
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>//title[@lang]  
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>Selects all the title elements that have an attribute named lang
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
 <a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>//title[@lang='en'] 
@@ -776,7 +771,7 @@
 <a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>/bookstore/book[price&gt;35.00]/title  
 <a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>Selects all the title elements of the book elements of the bookstore element that have a price element with a value greater than 35.00
 </code></pre></div>
-<a href="https://www.w3schools.com/xml/xml_xpath.asp">ref</a>
+<a href="https://www.w3schools.com/xml/xml_xpath.asp">ref</a></p>
 <h2 id="linq-to-xml">LINQ to XML</h2>
 <ul>
 <li>In memory programmering interface til XML data</li>
@@ -1077,7 +1072,7 @@
 <h2 id="opgave-160-1">Opgave 160-1</h2>
 <p>Simpel LINQ2XML opgave (kode til søgning: BGAB)</p>
 <p><a class="md-button md-button--primary" href="https://github.com/devcronberg/undervisning-cs-opgaver/blob/master/linq2xml-simpel/Opgave/index.md" target="_blank">Se opgave</a></p>
-</div></div>
+</div>
 </article>
 </div>
 </div>
@@ -1106,7 +1101,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.tabs.sticky", "navigation.expand", "navigation.prune", "navigation.tracking", "content.code.annotate", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
-<script src="assets/javascripts/bundle.efa0ade1.min.js"></script>
+<script src="assets/javascripts/bundle.ce72ebac.min.js"></script>
 <script src="javascripts/tablesort.min.js"></script>
 <script src="javascripts/tablesort.js"></script>
 <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
